@@ -1,34 +1,22 @@
-import Header from "./Componentes/Header";
-import Searchbar from "./Componentes/Searchbar";
-import Filtros from "./Componentes/Filtros";
-import Salas from "./Componentes/Salas";
-
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import PaginaPesquisa from './Componentes/PaginaPesquisa';
+import EscolhaCampus from './Componentes/EscolhaCampus';
 
 function App() {
-  return(
-    /*Header */
-  <div>
-    <div>
-      <Header/>
-    </div>
+  return (
+    <BrowserRouter>
+      <Routes>
+        
+        {/* Como ainda não criámos a página do Campus, vamos colocar a tua página de pesquisa logo na raiz "/" para poderes ver o teu trabalho */}
+        <Route path="/salas" element={<PaginaPesquisa />} />
+        
+       
+        <Route path="/campus" element={<EscolhaCampus />} /> 
+        {/* <Route path="/sala/:id" element={<DetalhesSala />} /> */}
 
-    <div>
-      <Searchbar/>
-    </div>
-
-    <div>
-      <Filtros/>
-    </div>
-
-    <div>
-      <Salas/>
-    </div>
-
-  </div> 
-
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
