@@ -4,7 +4,7 @@ function Salas(){
     return(
         <div>
             <div>
-                <hr className="border-black border my-4 mt-5"/>
+                <hr className="border-black my-4 mt-5"/>
             </div>
 
             <div className="grid grid-cols-1 gap-4 mr-6 ml-6">
