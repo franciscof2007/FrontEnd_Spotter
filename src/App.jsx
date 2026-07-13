@@ -8,10 +8,10 @@ function App() {
       <Routes>
         
         {/* Como ainda não criámos a página do Campus, vamos colocar a tua página de pesquisa logo na raiz "/" para poderes ver o teu trabalho */}
-        <Route path="/salas" element={<PaginaPesquisa />} />
+        <Route path="/:campus" element={<PaginaPesquisa />} />
         
        
-        <Route path="/campus" element={<EscolhaCampus />} /> 
+        <Route path="/" element={<EscolhaCampus />} /> 
         {/* <Route path="/sala/:id" element={<DetalhesSala />} /> */}
 
       </Routes>

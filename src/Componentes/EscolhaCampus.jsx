@@ -4,12 +4,13 @@ import imgtagus from "../assets/imgtagus.jpg"
 import logo from "../assets/hero.png"
 
 
+
 function EscolhaCampus(){
     const navigate=useNavigate();
 
     const CampusOpcao=({nome, imagem}) =>(
         <button
-            onClick={()=>navigate("/salas")}
+            onClick={()=>navigate(`/${nome.toLowerCase()}`)}
             className="group w-full max-w-sm flex flex-col items-start mb-8 cursor-pointer"
         >
             <div className="w-full h-48 rounded-2xl flex items-center justify-center overflow-hidden">
