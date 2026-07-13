@@ -1,7 +1,7 @@
 function CartaoSala({ disponibilidade, edificio, piso, sala }){
     return(
         
-        <div className="border-2 border-gray-600 rounded p-4 bg-white">
+        <div className="border-2 border-gray-600 rounded p-4 bg-white cursor-pointer">
                     
             <div className="font-bold">{disponibilidade}</div>
             <div className="mt-1">
