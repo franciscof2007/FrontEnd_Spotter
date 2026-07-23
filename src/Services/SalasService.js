@@ -15,10 +15,10 @@ export async function ObterSalas(campus, pagina=1) {
         });
         return{
             //salas:resposta.data.results || []
-            salas:dadosTeste.results || [],
-            pagina:dadosTeste.page,
-            total:dadosTeste.count,
-            PaginaAnterior:dadosTeste.last_page,
+            salas: dadosTeste.results || [],
+            pagina: dadosTeste.page,
+            total: dadosTeste.count,
+            PaginaAnterior: dadosTeste.last_page,
             ProximaPagina: dadosTeste.next_page,
 
         };

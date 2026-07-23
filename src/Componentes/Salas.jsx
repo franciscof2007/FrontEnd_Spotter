@@ -1,7 +1,35 @@
+import { useState, useEffect } from "react";
 import CartaoSala from "./CartaoSala";
+import { ObterSala } from "../Services/SalasService";
 
 
 function Salas(){
+
+    const [isloading, setIsloading] = useState(true);
+    const [erro, setErro] = useState(null);
+    const [salas, setSalas]= useState([]);
+
+    useEffect(()=>{
+        async function CarregarSalas() {
+            try{
+                const dados = await ObterSala("Alameda");
+                setSalas(dados.salas);
+
+            }catch(erro){
+                setErro(erro.mensagem);
+
+            }finally{
+                setIsloading(false);
+            }
+        }
+
+        CarregarSalas();
+
+
+
+    },[]);
+
+
     return(
         <div>
             <div>
