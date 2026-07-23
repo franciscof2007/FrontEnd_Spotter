@@ -1,5 +1,6 @@
 import CartaoSala from "./CartaoSala";
 
+
 function Salas(){
     return(
         <div>
