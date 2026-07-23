@@ -5,14 +5,14 @@ import dadosTeste from "../../teste.json";
 
 
 export async function ObterSalas(campus, pagina=1) {
-    try{
-        const resposta= await api.get(`/rooms`,{
-            params:{
-                campus,
-                page:pagina,
+    //try{
+      //  const resposta= await api.get(`/rooms`,{
+      //      params:{
+        //        campus,
+          //      page:pagina,
 
-            },
-        });
+            //},
+        //});
         return{
             //salas:resposta.data.results || []
             salas: dadosTeste.results || [],
@@ -24,11 +24,11 @@ export async function ObterSalas(campus, pagina=1) {
         };
         
 
-    }catch (erro)
-    {
-        console.error("Erro ao obter a lista de salas", erro);
-        throw erro;
-    }
+   // }catch (erro)
+    //{
+      //  console.error("Erro ao obter a lista de salas", erro);
+        //throw erro;
+    //}
 
 }
 

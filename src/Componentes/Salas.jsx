@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import CartaoSala from "./CartaoSala";
-import { ObterSala } from "../Services/SalasService";
+import { ObterSalas } from "../Services/SalasService";
 
 
 function Salas(){
@@ -12,7 +12,7 @@ function Salas(){
     useEffect(()=>{
         async function CarregarSalas() {
             try{
-                const dados = await ObterSala("Alameda");
+                const dados = await ObterSalas("Alameda");
                 setSalas(dados.salas);
 
             }catch(erro){
@@ -37,34 +37,18 @@ function Salas(){
             </div>
 
             <div className="grid grid-cols-1 gap-4 mr-6 ml-6">
+                {salas.map((sala) =>(
+                        <CartaoSala
+                            key={sala.fenix_id}
+                            disponibilidade={sala.status}
+                            edificio={sala.building_name}
+                            piso={sala.floor}
+                            sala={sala.name}
+
+                    />
+                ))}
                 
-                <CartaoSala 
-                disponibilidade="Disponibilidade livre até:"
-                edificio="Pavilhão de Civil"
-                piso="1"
-                sala="v1.11"
-                />
 
-                <CartaoSala 
-                disponibilidade="Disponibilidade livre até:"
-                edificio="Pavilhão de informática"
-                piso="0"
-                sala="F3"
-                />
-
-                <CartaoSala 
-                disponibilidade="Disponibilidade livre até:"
-                edificio="Pavilhão de Química"
-                piso="-2"
-                sala="QA0.02"
-                />
-
-                <CartaoSala 
-                disponibilidade="Disponibilidade livre até:"
-                edificio="Pavilhão de Eletrotécnica"
-                piso="1"
-                sala="EA3"
-                />
             </div>
         </div>
 
