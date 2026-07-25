@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import HeaderDetalhes from "./HeaderDetalhes";
 import LocalizacaoSala from "./LocalizacaoSala"
 import { ObterSalas } from "../Services/SalasService";
+import DisponibilidadeSala from "./DisponibilidadeSala";
+import EventoSala from "./EventoSala";
 
 function DetalhesSala() {
     const {id} = useParams();
@@ -34,6 +36,20 @@ return (
         piso={salaInfo.piso}
         sala={salaInfo.nome}
         capacidade={salaInfo.capacidade}
+      />
+  </div>
+
+  <div>
+     <DisponibilidadeSala
+        disponibilidade={salaInfo.disponibilidade}
+        atualizacao={salaInfo.atualizacao}
+      />
+  </div>
+
+  <div>
+     <EventoSala
+        disponibilidade={salaInfo.disponibilidade}
+        atualizacao={salaInfo.atualizacao}
       />
   </div>
 
