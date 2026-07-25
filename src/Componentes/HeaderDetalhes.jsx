@@ -1,9 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom";
 import logo from "../assets/hero.png"
 
-function Header(){
+function HeaderDetalhes(){
 
-    const {campus} = useParams();
+    const {id} = useParams();
     const navigate=useNavigate();
     
     return(
@@ -15,18 +15,12 @@ function Header(){
                 </button>
                 <img src={logo} alt="logotipo do spotter" className="ml-3 w-10"/>
             </div>
-            <div className="flex items-baseline">
-                <span className="px ml-6 py-1 font-bold text-[#2A6A90]">
-                    Campus:
-                </span>
-                <span className="px ml-1.5 py-1 capitalize">
-                    {campus}
-                </span>
-                
-                
+
+            <div className="p-8">
+                <h1 className="text-4xl mb-12 font-bold mt-5 text-[#2A6A90] text-center">Detalhes da Sala</h1>
             </div>
         </div>
     );
 }
 
-export default Header;
+export default HeaderDetalhes;
