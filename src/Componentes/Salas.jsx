@@ -39,13 +39,13 @@ function Salas(){
             <div className="grid grid-cols-1 gap-4 mr-6 ml-6">
                 {salas.map((sala) =>(
                         <CartaoSala
-                            key={sala.fenix_id}
-                            disponibilidade={sala.status}
-                            edificio={sala.building_name}
-                            piso={sala.floor}
-                            sala={sala.name}
                             horaInicio={sala.from}
                             horaFim={sala.until}
+                            key={sala.id}
+                            disponibilidade={sala.disponibilidade}
+                            edificio={sala.edificio}
+                            piso={sala.piso}
+                            sala={sala.nome}
 
                     />
                 ))}
