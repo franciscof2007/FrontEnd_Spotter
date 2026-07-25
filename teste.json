@@ -23,7 +23,7 @@
             "floor": "0 ",
             "campus": "Alameda",
             "normal_capacity": 46,
-            "status": "LIVRE_AGORA",
+            "status": "breve",
             "available_from": "2026-07-23T08:00:00",
             "available_until": "2026-07-23T15:00:00"
         },
@@ -34,7 +34,7 @@
             "floor": "0 ",
             "campus": "Alameda",
             "normal_capacity": 95,
-            "status": "LIVRE_AGORA",
+            "status": "OCUPADO",
             "available_from": "2026-07-23T11:30:00",
             "available_until": "2026-07-23T16:00:00"
         },
@@ -45,7 +45,7 @@
             "floor": "0 ",
             "campus": "Alameda",
             "normal_capacity": 98,
-            "status": "LIVRE_AGORA",
+            "status": "Incerto",
             "available_from": "2026-07-23T11:30:00",
             "available_until": "2026-07-23T13:00:00"
         },
