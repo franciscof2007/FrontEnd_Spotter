@@ -22,12 +22,12 @@ function EscolhaCampus(){
         </button>
     );
     return(
-        <div className="flex flex-col items-center p-8 min-h-screen">
+        <div className="flex flex-col items-center pt-16 p-8 min-h-screen">
             <img src={logo} alt="logotipo" className="h-10 w-10"/>
             <h1 className="text-3xl mb-12 mt-5 text-center">
                 Qual é o teu Campus?
             </h1>
-            <div className="flex flex-col gap-4 w-full">
+            <div className="flex flex-col mt-16 gap-4 w-full">
                 <CampusOpcao nome="Alameda" imagem={imgalameda}/>
                 <CampusOpcao nome="TagusPark" imagem={imgtagus}/>
             </div>

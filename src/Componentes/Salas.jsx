@@ -44,6 +44,8 @@ function Salas(){
                             edificio={sala.building_name}
                             piso={sala.floor}
                             sala={sala.name}
+                            horaInicio={sala.from}
+                            horaFim={sala.until}
 
                     />
                 ))}
