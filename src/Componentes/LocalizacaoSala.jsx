@@ -11,7 +11,7 @@ return (
             alt="Ícone" 
             className="ml-16 object-contain text-[#2A6A90] fill-current " 
             />
-                <h1 className="text-xl mb-6 -ml-4 font-bold mt-5 text-[#2A6A90] ">Localização:</h1>
+                <h1 className="text-xl mb-6 -ml-4 mt-6 font-bold text-[#2A6A90] ">Localização:</h1>
             </div>
 <div className="flex justify-between ml-16">
       </div>

@@ -17,7 +17,7 @@ function HeaderDetalhes(){
             </div>
 
             <div className="p-8">
-                <h1 className="text-4xl mb-12 font-bold mt-5 text-[#2A6A90] text-center">Detalhes da Sala</h1>
+                <h1 className="text-4xl mb-12 font-bold text-[#2A6A90] text-center">Detalhes da Sala</h1>
             </div>
         </div>
     );
