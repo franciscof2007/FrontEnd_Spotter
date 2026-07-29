@@ -29,6 +29,24 @@ function Salas(){
 
     },[]);
 
+    if (isloading){
+        return(
+            <div>
+                A procurar salas...
+            </div>
+        );
+    }
+
+    if (erro || salas.length===0){
+        return(
+            <div>
+                {erro}
+            </div>
+        );
+    }
+
+
+
 
     return(
         <div>
