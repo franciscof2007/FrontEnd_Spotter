@@ -35,11 +35,11 @@
         },
         {
             "fenix_id": "2448131384041",
-            "name": "",
+            "name": "F2",
             "building_name": "Secção de Folhas",
             "floor": "0",
             "campus": "alameda",
-            "status": "LIVRE_AGORA",
+            "status": "Incerto",
             "available_from": "2026-07-29T07:00:00Z",
             "available_until": "2026-07-29T19:00:00Z"
         },

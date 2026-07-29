@@ -1,6 +1,7 @@
 
 import api from "./Api";
 import dadosTeste from "../../teste.json";
+import dadosTeste_detalhes from "../../teste_detalhes.json"
 
 
 
@@ -50,17 +51,48 @@ export async function ObterSalas(campus, pagina=1) {
 }
 
 export async function ObterSala(id) {
-    try{
-        const resposta= await api.get(`/salas`,{
-            params:{id},
-        });
-        return resposta.data;
+    //try{
+     //   const resposta= await api.get(`/salas`,{
+     //       params:{id},
+     //   });
+    
 
-    }catch (erro)
-    {
-        console.error("Erro ao obter o detalhe da sala", erro);
-        throw erro;
+    //}catch (erro)
+   // {
+      //  console.error("Erro ao obter o detalhe da sala", erro);
+     //   throw erro;
+    //}
+    const resposta=dadosTeste_detalhes || {};
+    const SalaFormatada = {
+        id:resposta.fenix_id,
+        nome:resposta.name,
+        edificio:resposta.building_name,
+        piso:resposta.floor,
+        campus:resposta.campus,
+        descricao:resposta.description,
+        capacidade:resposta.normal_capacity,
+        disponibilidade:resposta.status,
+        livre_desde:resposta.available_from,
+        livre_ate:resposta.available_until,
+        atualizado:resposta.last_updated_at
+
+
+        
     }
+    const eventosFormatados=resposta.events.map((sala)=>({
+        inicio:sala.start_time,
+        fim:sala.end_time,
+        tipo:sala.event_type,
+        curso:sala.course_info,
+        informacao:sala.info
+    }))
+    return{
+        sala:SalaFormatada,
+        eventos:eventosFormatados,
+
+
+    };
+    
 
 }
 

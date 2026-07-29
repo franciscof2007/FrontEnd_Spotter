@@ -1,0 +1,44 @@
+{
+    "fenix_id": "2448131361681",
+    "name": "V1.25",
+    "building_name": "Edifício de Civil",
+    "floor": "1",
+    "campus": "alameda",
+    "description": "Sala V1.25 no Edifício de Civil",
+    "normal_capacity": 28,
+    "status": "OCUPADO",
+    "available_from": "2026-07-11T16:30:00Z",
+    "available_until": "2026-07-11T19:00:00Z",
+    "last_updated_at": "2026-07-11T14:07:58Z",
+    "events": [
+        {
+            "start_time": "11:00:00",
+            "end_time": "12:30:00",
+            "event_type": "MANUTENCAO",
+            "course_info": "Curso Eng. 1",
+            "info": "Gerado para fins de teste"
+        },
+        {
+            "start_time": "13:00:00",
+            "end_time": "14:30:00",
+            "event_type": "AULA",
+            "course_info": "Curso Eng. 5",
+            "info": "Gerado para fins de teste"
+        },
+        {
+            "start_time": "14:00:00",
+            "end_time": "15:30:00",
+            "event_type": "AULA",
+            "course_info": "Curso Eng. 3",
+            "info": "Gerado para fins de teste"
+        },
+        {
+            "start_time": "16:00:00",
+            "end_time": "17:30:00",
+            "event_type": "REUNIAO",
+            "course_info": "Curso Eng. 3",
+            "info": "Gerado para fins de teste"
+        }
+    ]
+
+}
