@@ -1,13 +1,13 @@
 import { useNavigate, useParams } from "react-router-dom";
-import IconeLocalizacao from "../assets/location.svg?react";
+import LocationIcon from "../assets/location.svg?react";
 
-function LocalizacaoSala({ disponibilidade, edificio, piso, sala, horaInicio, horaFim, id, capacidade }){
+function RoomLocation({ availability, building, floor, room, startTime, endTime, id, capacity }){
     const navigate=useNavigate();
 return (
     <div>
         <div className="-mt-12 flex gap-8">
             <img 
-            src={IconeLocalizacao} 
+            src={LocationIcon} 
             alt="Ícone" 
             className="ml-16 object-contain text-[#2A6A90] fill-current " 
             />
@@ -19,24 +19,24 @@ return (
       <div className="ml-16">
         <div>
             <span className="font-semibold text-xl">Sala: </span>
-            {sala}
+            {room}
         </div>
 
         <div>
             <span className="font-semibold text-xl">Piso: </span>
-            {piso}
+            {floor}
         </div>
 
         <div>
 
         <span className="font-semibold text-xl">Edifício: </span>
-        {edificio}
+        {building}
     </div>
 
         <div>
 
         <span className="font-semibold text-xl">Capacidade sala: </span>
-        {capacidade}
+        {capacity}
     </div>
                 
     </div>
@@ -46,4 +46,4 @@ return (
 
 }
 
-export default LocalizacaoSala;
+export default RoomLocation;

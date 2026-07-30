@@ -1,11 +1,11 @@
 import Header from "./Header";
 import Searchbar from "./Searchbar";
-import Filtros from "./Filtros";
-import Salas from "./Salas";
+import Filters from "./Filters";
+import Rooms from "./Rooms";
 
 
 
-function PaginaPesquisa() {
+function SearchPage() {
   return(
     
     <div>
@@ -18,11 +18,11 @@ function PaginaPesquisa() {
       </div>
 
       <div>
-        <Filtros/>
+        <Filters/>
       </div>
 
       <div>
-        <Salas/>
+        <Rooms/>
       </div>
 
     </div> 
@@ -30,4 +30,4 @@ function PaginaPesquisa() {
   );
 }
 
-export default PaginaPesquisa;
+export default SearchPage;

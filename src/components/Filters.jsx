@@ -1,10 +1,10 @@
 
 import refresh from "../assets/refresh.svg"
-import arrow_drop_down from "../assets/arrow-drop-down.png"
+import arrowDropDown from "../assets/arrow-drop-down.png"
 import { useFilters } from "../hooks/useFilters";
 
 
-function Filtros(){
+function Filters(){
     //const {building, setBuilding} = useFilters();
     return(
         <div className="flex px-2 align-baseline items-center justify-center mr-5">
@@ -25,17 +25,17 @@ function Filtros(){
                 //onClick={()=>setBuilding('civil')}
                 >
                     <span className="truncate">Edifícios</span>
-                    <img src={arrow_drop_down} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
+                    <img src={arrowDropDown} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
                 </div>
                 
                 <div className="flex-1 flex items-center justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0">
                     <span className="truncate">Disp.</span>
-                    <img src={arrow_drop_down} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
+                    <img src={arrowDropDown} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
                 </div>
                 
                 <div className="flex-1 flex items-center justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0">
                     <span className="truncate">Duração</span>
-                    <img src={arrow_drop_down} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
+                    <img src={arrowDropDown} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
                 </div>
            
             </div>
@@ -53,4 +53,4 @@ function Filtros(){
 
 }
 
-export default Filtros;
+export default Filters;

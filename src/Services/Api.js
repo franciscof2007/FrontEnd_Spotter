@@ -9,36 +9,36 @@ api.interceptors.response.use(
     response => response,
     (error)=>{
 
-        let mensagem="Ocorreu um erro ao contactar com o servidor.";
-        let tipo = "erro_desconhecido";
+        let message="Ocorreu um erro ao contactar com o servidor.";
+        let type = "unknown_error";
         let status = error.response?.status || null;
 
         if (error.code==="ECONNABORTED"){
-            tipo="timeout";
-            mensagem="O pedido demorou demasiado tempo. Tenta novamente.";
+            type="timeout";
+            message="O pedido demorou demasiado tempo. Tenta novamente.";
         }
         else if (!error.response) {
-            tipo = "sem_internet";
-            mensagem = "Não foi possível ligar ao servidor. Verifica a tua ligação.";
+            type = "offline";
+            message = "Não foi possível ligar ao servidor. Verifica a tua ligação.";
         } else if (status === 404) {
-            tipo = "nao_encontrado";
-            mensagem = "Sala não encontrada.";
+            type = "not_found";
+            message = "Sala não encontrada.";
         } else if (status >= 500) {
-            tipo = "erro_servidor";
-            mensagem = "Erro do servidor. Tenta novamente mais tarde.";
+            type = "server_error";
+            message = "Erro do servidor. Tenta novamente mais tarde.";
         }
 
 
-        const erro_normalizado= {
-            tipo,
-            mensagem,
+        const normalizedError= {
+            type,
+            message,
             status,
-            dados:error.response?.data ||null,
+            data:error.response?.data ||null,
 
             
         };
 
-        return Promise.reject(erro_normalizado);
+        return Promise.reject(normalizedError);
     }
 );
 

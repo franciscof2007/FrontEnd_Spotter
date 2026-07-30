@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import logo from "../assets/hero.png"
 
-function HeaderDetalhes(){
+function DetailsHeader(){
 
     const {id} = useParams();
     const navigate=useNavigate();
@@ -23,4 +23,4 @@ function HeaderDetalhes(){
     );
 }
 
-export default HeaderDetalhes;
+export default DetailsHeader;

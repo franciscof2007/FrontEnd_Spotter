@@ -1,14 +1,14 @@
 import { useNavigate, useParams } from "react-router-dom";
-import IconeEvento from "../assets/alarme.svg?react";
+import EventIcon from "../assets/alarm.svg?react";
 
-function EventoSala({horaInicio, horaFim, disponibilidade, atualizacao}){
+function RoomEvent({startTime, endTime, availability, lastUpdated}){
     const navigate=useNavigate();
 
 return (
     <div>
         <div className="mt-8 flex gap-8">
             <img 
-            src={IconeEvento} 
+            src={EventIcon} 
             alt="Ícone" 
             className="ml-16 object-contain text-[#2A6A90] fill-current " 
             />
@@ -37,4 +37,4 @@ return (
 
 }
 
-export default EventoSala;
+export default RoomEvent;

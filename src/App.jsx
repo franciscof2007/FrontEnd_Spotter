@@ -1,19 +1,19 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import PaginaPesquisa from './Componentes/PaginaPesquisa';
-import EscolhaCampus from './Componentes/EscolhaCampus';
-import DetalhesSala from './Componentes/DetalhesSala';
+import SearchPage from './components/SearchPage';
+import CampusSelection from './components/CampusSelection';
+import RoomDetails from './components/RoomDetails';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         
-        {/* Como ainda não criámos a página do Campus, vamos colocar a tua página de pesquisa logo na raiz "/" para poderes ver o teu trabalho */}
-        <Route path="/:campus" element={<PaginaPesquisa />} />
+        {/* Until the campus page exists, use the search page at the root route so the current work is visible. */}
+        <Route path="/:campus" element={<SearchPage />} />
        
-        <Route path="/" element={<EscolhaCampus />} /> 
+        <Route path="/" element={<CampusSelection />} /> 
         
-        <Route path="/sala/:id" element={<DetalhesSala />} /> 
+        <Route path="/sala/:id" element={<RoomDetails />} /> 
 
       </Routes>
     </BrowserRouter>

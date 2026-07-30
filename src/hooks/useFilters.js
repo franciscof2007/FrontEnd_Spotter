@@ -26,7 +26,7 @@ export function useFilters(){
         });
     }
 
-    const ClearFilters=()=>{
+    const clearFilters=()=>{
         setSearchParams({});
     }
 
@@ -37,6 +37,6 @@ export function useFilters(){
         setBuilding,
         setDuration,
         setStatus,
-        ClearFilters
+        clearFilters
     };
 }
