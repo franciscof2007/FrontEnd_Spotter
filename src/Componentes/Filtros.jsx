@@ -1,8 +1,11 @@
 
 import refresh from "../assets/refresh.svg"
 import arrow_drop_down from "../assets/arrow-drop-down.png"
+import { useFilters } from "../hooks/useFilters";
+
 
 function Filtros(){
+    //const {building, setBuilding} = useFilters();
     return(
         <div className="flex px-2 align-baseline items-center justify-center mr-5">
 
@@ -18,7 +21,9 @@ function Filtros(){
 
 
             <div className="flex flex-1 gap-3">
-                <div className="flex-1 flex items-center justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0">
+                <div className="flex-1 flex items-center justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0"
+                //onClick={()=>setBuilding('civil')}
+                >
                     <span className="truncate">Edifícios</span>
                     <img src={arrow_drop_down} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
                 </div>
