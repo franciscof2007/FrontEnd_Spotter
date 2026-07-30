@@ -59,7 +59,7 @@ function Salas(){
                         <CartaoSala
                             horaInicio={sala.livre_desde}
                             horaFim={sala.livre_ate}
-                            key={sala.id}
+                            id={sala.id}
                             disponibilidade={sala.disponibilidade}
                             edificio={sala.edificio}
                             piso={sala.piso}

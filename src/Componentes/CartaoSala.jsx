@@ -1,11 +1,13 @@
-function CartaoSala({ disponibilidade, edificio, piso, sala, horaInicio, horaFim }){
-    
+import { useNavigate } from 'react-router-dom';
+
+function CartaoSala({ disponibilidade, edificio, piso, sala, horaInicio, horaFim, id }){
+    const navigate=useNavigate();
+
     let textoStatus = "Incerto";
     let corTexto = "text-gray-500"
     let corFaixa = "bg-gray-500";
     let subtexto = "Informação indisponível";
 
-    // Normalizar a string para evitar problemas com maiúsculas/minúsculas
     const statusLower = disponibilidade?.toLowerCase() || "";
 
     if (statusLower.includes("disponivel") || statusLower.includes("livre_agora") || statusLower === "disponível") {
@@ -29,10 +31,13 @@ function CartaoSala({ disponibilidade, edificio, piso, sala, horaInicio, horaFim
     }
 
     return (
-        <div className="border-2 border-gray-400 rounded p-4 bg-white cursor-pointer">
-            <div className="flex justify-between items-center mb-1">
-                <span className={`font-bold text-xl ${corTexto}`}>
-                 {textoStatus}
+        <div
+        onClick={() => navigate(`/sala/${id}`)}
+        className="border-2 border-gray-400 rounded p-4 bg-white cursor-pointer"
+        >
+        <div className="flex justify-between items-center mb-1">
+        <span className={`font-bold text-xl ${corTexto}`}>
+            {textoStatus}
         </span>
         <span className={`w-10 h-3 rounded-full ${corFaixa}`}></span>
       </div>
