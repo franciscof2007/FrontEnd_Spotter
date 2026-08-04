@@ -13,11 +13,19 @@ function RoomDetails() {
 
   useEffect(() => {
     async function loadData() {
+      if (getDetails) {
+        const roomData = await getDetails(id);
+        if (roomData) {
+          setRoomInfo(roomData);
+          return;
+        }
+      }
+
       const data = await getRooms(campus);
-      // Find the room with the matching ID in the list.
       const selectedRoom = data.rooms.find((room) => String(room.id) === String(id));
       setRoomInfo(selectedRoom);
     }
+
     loadData();
   }, [id, campus]);
 
@@ -29,7 +37,6 @@ function RoomDetails() {
 
 return (
   
-  
 <div>
   <div>
     <DetailsHeader/>
@@ -40,14 +47,14 @@ return (
         building={roomInfo.building}
         floor={roomInfo.floor}
         room={roomInfo.name}
-        capacity={roomInfo.capacity}
+        capacity={roomInfo.capacity ?? roomInfo.normal_capacity}
       />
   </div>
 
   <div>
      <RoomAvailability
         availability={roomInfo.availability}
-        lastUpdated={roomInfo.lastUpdated}
+        lastUpdated={roomInfo.updatedAt}
       />
   </div>
 
