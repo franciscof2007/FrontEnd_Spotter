@@ -1,20 +1,20 @@
 
 import api from "./Api";
-import testRoomsData from "../../rooms.mock.json";
-import testRoomDetailsData from "../../room-details.mock.json"
+
+
 
 
 
 export async function getRooms(campus, page=1) {
-    //try{
-      //  const response= await api.get(`/salas`,{
-      //      params:{
-        //        campus,
-          //      page,
+    try{
+        const response= await api.get(`rooms/`,{
+            params:{
+                campus: campus ? campus.toUpperCase() : campus,
+                page,
 
-            //},
-        //});
-        const originalData=testRoomsData.results || []
+            },
+        });
+        const originalData=response.data.results || [];
 
 
         const formattedRooms = originalData.map((room)=>({
@@ -32,67 +32,64 @@ export async function getRooms(campus, page=1) {
 
         }))
         return{
-            //rooms:response.data.results || []
-            rooms: formattedRooms,
-            page: testRoomsData.page,
-            total: testRoomsData.count,
-            previousPage: testRoomsData.last_page,
-            nextPage: testRoomsData.next_page,
+           
+            rooms: formattedRooms || [],
+            total: response.data.count,
+            previousPage: response.data.previous,
+            nextPage: response.data.next,
 
         };
         
 
-   // }catch (error)
-    //{
-      //  console.error("Error fetching rooms list", error);
-        //throw error;
-    //}
+   }catch (error)
+    {
+        console.error("Error fetching rooms list", error);
+        throw error;
+    }
 
 }
 
 export async function getDetails(id) {
-    //try{
-     //   const response= await api.get(`/salas`,{
-     //       params:{id},
-     //   });
-    
+    try{
+        const response= await api.get(`rooms/${id}/`);
 
-    //}catch (error)
-   // {
-      //  console.error("Error fetching room details", error);
-     //   throw error;
-    //}
-    const response=testRoomDetailsData || {};
-    const formattedRoom = {
-        id:response.fenix_id,
-        name:response.name,
-        building:response.building_name,
-        floor:response.floor,
-        campus:response.campus,
-        description:response.description,
-        capacity:response.normal_capacity,
-        availability:response.status,
-        availableFrom:response.available_from,
-        availableUntil:response.available_until,
-        updatedAt:response.last_updated_at
+        const formattedRoom = {
+        id:response.data.fenix_id,
+        name:response.data.name,
+        building:response.data.building_name,
+        floor:response.data.floor,
+        campus:response.data.campus,
+        description:response.data.description,
+        capacity:response.data.normal_capacity,
+        availability:response.data.status,
+        availableFrom:response.data.available_from,
+        availableUntil:response.data.available_until,
+        updatedAt:response.data.last_updated_at
+        };
 
-
-        
-    }
-    const formattedEvents=response.events.map((event)=>({
+        const formattedEvents=response.data.events.map((event)=>({
         start:event.start_time,
         end:event.end_time,
         type:event.event_type,
         course:event.course_info,
         info:event.info
-    }))
-    return{
-        room:formattedRoom,
-        events:formattedEvents,
+        }));
+        return{
+            room:formattedRoom,
+            events:formattedEvents,
 
+        };
 
-    };
+    }catch (error)
+    {
+        console.error("Error fetching room details", error);
+        throw error;
+    }
     
 
+
+        
 }
+
+
 
