@@ -6,10 +6,11 @@ import api from "./Api";
 
 
 export async function getRooms(campus, page=1) {
+    
     try{
         const response= await api.get(`rooms/`,{
             params:{
-                campus: campus ? campus.toUpperCase() : campus,
+                campus: campus ? campus.toLowerCase() : campus,
                 page,
 
             },

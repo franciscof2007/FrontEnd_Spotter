@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import RoomCard from "./RoomCard";
-import { getRooms } from "../services/RoomsService";
+import { getRooms } from "../Services/RoomsService";
 import { useParams } from "react-router-dom";
 
 
@@ -60,8 +60,9 @@ function Rooms(){
             </div>
 
             <div className="grid grid-cols-1 gap-4 mr-6 ml-6">
-                {rooms.map((room) =>(
+                {rooms.map((room,index) =>(
                         <RoomCard
+                            key={room.id || index}
                             startTime={room.availableFrom}
                             endTime={room.availableUntil}
                             id={room.id}
