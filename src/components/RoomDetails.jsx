@@ -5,6 +5,7 @@ import RoomLocation from "./RoomLocation"
 import { getRooms } from "../services/RoomsService";
 import RoomAvailability from "./RoomAvailability";
 import RoomEvent from "./RoomEvent";
+import { getDetails } from "../services/RoomsService";
 
 function RoomDetails() {
     const {id, campus} = useParams();
@@ -39,7 +40,7 @@ return (
         building={roomInfo.building}
         floor={roomInfo.floor}
         room={roomInfo.name}
-        capacity={roomInfo.normal_capacity}
+        capacity={roomInfo.capacity}
       />
   </div>
 
