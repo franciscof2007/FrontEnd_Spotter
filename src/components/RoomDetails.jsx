@@ -22,6 +22,10 @@ function RoomDetails() {
 
   if (!roomInfo) return <p className="text-center mt-10">A carregar...</p>;
   
+  const proximoEvento = roomInfo.events && roomInfo.events.length > 0 
+    ? roomInfo.events[0] 
+    : null;
+
 return (
   
   
@@ -48,8 +52,11 @@ return (
 
   <div>
      <RoomEvent
-        availability={roomInfo.availability}
-        lastUpdated={roomInfo.lastUpdated}
+        start={proximoEvento.start_time}
+        end={proximoEvento.end_time}
+        type={proximoEvento.event_type}
+        course={proximoEvento.course_info}
+        info={proximoEvento.info}
       />
   </div>
 
