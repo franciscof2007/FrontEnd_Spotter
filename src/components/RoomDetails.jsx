@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import DetailsHeader from "./DetailsHeader";
 import RoomLocation from "./RoomLocation"
-import { getRooms } from "../services/RoomsService";
+import { getRooms } from "../Services/RoomsService";
 import RoomAvailability from "./RoomAvailability";
 import RoomEvent from "./RoomEvent";
-import { getDetails } from "../services/RoomsService";
+import { getDetails } from "../Services/RoomsService";
 
 function RoomDetails() {
     const {id, campus} = useParams();
