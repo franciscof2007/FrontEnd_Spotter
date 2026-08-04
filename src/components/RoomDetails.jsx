@@ -51,6 +51,7 @@ return (
   </div>
 
   <div>
+    {proximoEvento ? (
      <RoomEvent
         start={proximoEvento.start_time}
         end={proximoEvento.end_time}
@@ -58,6 +59,9 @@ return (
         course={proximoEvento.course_info}
         info={proximoEvento.info}
       />
+      ) : (
+    <p className="text-gray-500 italic mt-4 ml-16">Sem eventos agendados.</p>
+  )}
   </div>
 
 </div>
