@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import RoomCard from "./RoomCard";
 import { getRooms } from "../services/RoomsService";
+import { useParams } from "react-router-dom";
 
 
 function Rooms(){
-
+    const { campus } = useParams();
     const [isloading, setIsloading] = useState(true);
     const [error, setError] = useState(null);
     const [rooms, setRooms]= useState([]);
@@ -12,7 +13,8 @@ function Rooms(){
     useEffect(()=>{
         async function loadRooms() {
             try{
-                const data = await getRooms("Alameda");
+                
+                const data = await getRooms(campus);
                 setRooms(data.rooms);
 
             }catch(error){
@@ -22,12 +24,15 @@ function Rooms(){
                 setIsloading(false);
             }
         }
+        if(campus){
+            loadRooms();
 
-        loadRooms();
+        }   
+            
 
 
 
-    },[]);
+    },[campus]);
 
     if (isloading){
         return(

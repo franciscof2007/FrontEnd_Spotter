@@ -2,26 +2,26 @@ import { useSearchParams } from "react-router-dom";
 
 export function useFilters(){
     const [searchParams, setSearchParams] = useSearchParams();
-    const building = searchParams.get('edificio') || '';
-    const status = searchParams.get('estado') || '';
-    const duration =searchParams.get('duracao') || '';
+    const building = searchParams.get('building_fenix_id') || '';
+    const status = searchParams.get('status') || '';
+    const duration =searchParams.get('') || '';
 
     const setBuilding = (newBuilding) =>{
         setSearchParams(prev=>{
-            prev.set('edificio', newBuilding);
+            prev.set('building_fenix_id', newBuilding);
             return prev;
         });
     }
 
     const setStatus = (newStatus) =>{
         setSearchParams(prev=>{
-            prev.set('estado', newStatus);
+            prev.set('status', newStatus);
             return prev;
         });
     }
     const setDuration = (newDuration) =>{
         setSearchParams(prev=>{
-            prev.set('duracao', newDuration);
+            prev.set('', newDuration);
             return prev;
         });
     }

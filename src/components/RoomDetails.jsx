@@ -7,18 +7,18 @@ import RoomAvailability from "./RoomAvailability";
 import RoomEvent from "./RoomEvent";
 
 function RoomDetails() {
-    const {id} = useParams();
+    const {id, campus} = useParams();
     const [roomInfo, setRoomInfo] = useState(null);
 
   useEffect(() => {
     async function loadData() {
-      const data = await getRooms("Alameda");
+      const data = await getRooms(campus);
       // Find the room with the matching ID in the list.
       const selectedRoom = data.rooms.find((room) => String(room.id) === String(id));
       setRoomInfo(selectedRoom);
     }
     loadData();
-  }, [id]);
+  }, [id, campus]);
 
   if (!roomInfo) return <p className="text-center mt-10">A carregar...</p>;
   
