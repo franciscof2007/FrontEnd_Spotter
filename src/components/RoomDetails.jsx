@@ -39,7 +39,7 @@ return (
         building={roomInfo.building}
         floor={roomInfo.floor}
         room={roomInfo.name}
-        capacity={roomInfo.capacity}
+        capacity={roomInfo.normal_capacity}
       />
   </div>
 
