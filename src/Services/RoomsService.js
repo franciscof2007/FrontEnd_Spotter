@@ -24,7 +24,6 @@ export async function getRooms(campus, page=1) {
             building:room.building_name,
             floor:room.floor,
             campus:room.campus,
-            capacity:room.normal_capacity,
             availability:room.status,
             availableFrom:room.available_from,
             availableUntil:room.available_until
