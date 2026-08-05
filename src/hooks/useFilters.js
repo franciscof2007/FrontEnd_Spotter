@@ -4,7 +4,8 @@ export function useFilters(){
     const [searchParams, setSearchParams] = useSearchParams();
     const building = searchParams.get('building_fenix_id') || '';
     const status = searchParams.get('status') || '';
-  
+    const freeFrom=searchParams.get('free_from') || '';
+    const freeUntil=searchParams.get ('free_until') || '';
 
     const setBuilding = (newBuilding) =>{
         setSearchParams(prev=>{
@@ -30,6 +31,23 @@ export function useFilters(){
         });
     }
 
+    const setDuration = (from, until) =>{
+        setSearchParams(prev=>{
+            if(from){
+                prev.set('free_from', from);
+            }else{
+                prev.delete('free_from');
+            }
+            if(until){
+                prev.set('free_until', until);
+
+            }else{
+                prev.delete('free_until');
+            }
+            return prev;
+        });
+
+    }
 
     const clearFilters=()=>{
         setSearchParams({});
@@ -41,6 +59,9 @@ export function useFilters(){
         setBuilding,
         setStatus,
         clearFilters,
+        freeFrom,
+        freeUntil,
+        setDuration
 
     };
 }

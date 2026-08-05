@@ -7,7 +7,7 @@ import { useFilters } from "../hooks/useFilters";
 
 function Rooms(){
     const { campus } = useParams();
-    const { building, status } = useFilters();
+    const { building, status, freeFrom, freeUntil } = useFilters();
     const [isloading, setIsloading] = useState(true);
     const [error, setError] = useState(null);
     const [rooms, setRooms]= useState([]);
@@ -16,7 +16,7 @@ function Rooms(){
         async function loadRooms() {
             try{
                 
-                const data = await getRooms(campus, 1, building, status);
+                const data = await getRooms(campus, 1, building, status, freeFrom, freeUntil);
                 setRooms(data.rooms);
 
             }catch(error){
@@ -34,7 +34,7 @@ function Rooms(){
 
 
 
-    },[campus, building, status]);
+    },[campus, building, status, freeFrom, freeUntil]);
 
     if (isloading){
         return(

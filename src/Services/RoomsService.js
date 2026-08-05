@@ -1,11 +1,10 @@
-
 import api from "./Api";
 
 
 
 
 
-export async function getRooms(campus, page=1, building, status) {
+export async function getRooms(campus, page=1, building, status, freeFrom, freeUntil) {
     
     try{
         const response= await api.get(`rooms/`,{
@@ -14,6 +13,8 @@ export async function getRooms(campus, page=1, building, status) {
                 page,
                 building_fenix_id:building || undefined,
                 status:status || undefined,
+                free_from:freeFrom || undefined,
+                free_until:freeUntil || undefined
 
             },
         });
