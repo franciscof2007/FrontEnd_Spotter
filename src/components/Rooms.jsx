@@ -3,7 +3,9 @@ import RoomCard from "./RoomCard";
 import { getRooms } from "../Services/RoomsService";
 import { useParams } from "react-router-dom";
 import Error from "./Error";
+import SemInternet from "./SemInternet";
 import { useFilters } from "../hooks/useFilters";
+import SemResultadosFiltros from "./SemResultadosFiltros";
 
 
 function Rooms(){
@@ -48,8 +50,7 @@ function Rooms(){
     if (error || rooms.length===0){
         return(
             <div>
-                {/*{error}*/}
-                <Error/>
+                <SemResultadosFiltros/>
             </div>
         );
     }
