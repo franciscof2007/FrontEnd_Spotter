@@ -10,7 +10,7 @@ function Rooms(){
     const { campus } = useParams();
     const { building, status } = useFilters();
     const [isloading, setIsloading] = useState(true);
-    const [error, setError] = useState(true); /*null*/
+    const [error, setError] = useState(null); 
     const [rooms, setRooms]= useState([]);
 
     useEffect(()=>{
