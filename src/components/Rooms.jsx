@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import RoomCard from "./RoomCard";
 import { getRooms } from "../Services/RoomsService";
 import { useParams } from "react-router-dom";
-
+import Error from "./Error";
 
 function Rooms(){
     const { campus } = useParams();
     const [isloading, setIsloading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(true); {/*null*/}
     const [rooms, setRooms]= useState([]);
 
     useEffect(()=>{
@@ -45,12 +45,11 @@ function Rooms(){
     if (error || rooms.length===0){
         return(
             <div>
-                {error}
+                {/*{error}*/}
+                <Error/>
             </div>
         );
     }
-
-
 
 
     return(

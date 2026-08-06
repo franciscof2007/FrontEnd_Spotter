@@ -40,14 +40,6 @@ function Filters(){
            
             </div>
 
-        
-
-
-
-
-
-
-
         </div>
     );
 
