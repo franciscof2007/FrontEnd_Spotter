@@ -15,7 +15,7 @@ function RoomAvailability({startTime, endTime, availability, lastUpdated}){
         subtitle = (startTime && endTime) ? `Livre das ${startTime} às ${endTime}` : "Livre em breve";
         
 
-    } else if (statusLower.includes("ocupad")) {
+    } else if (statusLower.includes("ocupado")) {
         subtitle = endTime ? `Ocupada até às ${endTime}` : "Ocupada neste momento";
     }
 

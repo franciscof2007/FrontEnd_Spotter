@@ -5,10 +5,16 @@ import RoomLocation from "./RoomLocation";
 import RoomAvailability from "./RoomAvailability";
 import RoomEvent from "./RoomEvent";
 import { getRooms, getDetails } from "../Services/RoomsService";
+import { FormatTime } from "../Utils/FormatTime";
+
 
 function RoomDetails() {
   const { id, campus } = useParams();
   const [roomInfo, setRoomInfo] = useState(null);
+
+
+
+
 
   useEffect(() => {
     async function loadData() {
@@ -48,6 +54,7 @@ function RoomDetails() {
       ? roomInfo.events[0]
       : null;
 
+  
   return (
     <div>
       <div>
@@ -65,16 +72,16 @@ function RoomDetails() {
 
       <div>
         <RoomAvailability
-          availability={roomInfo.availability}
-          lastUpdated={roomInfo.updatedAt}
+          availability={roomInfo.availability }
+          lastUpdated={FormatTime(roomInfo.updatedAt)}
         />
       </div>
 
       <div>
         {proximoEvento ? (
           <RoomEvent
-            start={proximoEvento.start || proximoEvento.start_time}
-            end={proximoEvento.end || proximoEvento.end_time}
+            start={FormatTime(proximoEvento.start || proximoEvento.start_time)}
+            end={FormatTime(proximoEvento.end || proximoEvento.end_time)}
             type={proximoEvento.type || proximoEvento.event_type}
             course={proximoEvento.course || proximoEvento.course_info}
             info={proximoEvento.info}
