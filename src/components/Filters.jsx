@@ -39,7 +39,7 @@ function Filters(){
                 </div>
                 
                 <div className="flex-1 flex items-center justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0"
-                onClick={()=>setDuration('14:00', '17:00')}
+                onClick={()=>setDuration('22:00', '23:00')}
                 >
                     <span className="truncate">Duração</span>
                     <img src={arrowDropDown} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
