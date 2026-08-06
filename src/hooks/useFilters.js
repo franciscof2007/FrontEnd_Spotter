@@ -4,27 +4,32 @@ export function useFilters(){
     const [searchParams, setSearchParams] = useSearchParams();
     const building = searchParams.get('building_fenix_id') || '';
     const status = searchParams.get('status') || '';
-    const duration =searchParams.get('') || '';
+  
 
     const setBuilding = (newBuilding) =>{
         setSearchParams(prev=>{
-            prev.set('building_fenix_id', newBuilding);
+            if(newBuilding){
+                prev.set('building_fenix_id', newBuilding);
+            }else{
+                prev.delete('building_fenix_id');
+            }
+            
             return prev;
         });
     }
 
     const setStatus = (newStatus) =>{
         setSearchParams(prev=>{
-            prev.set('status', newStatus);
+            if(newStatus){
+                prev.set('status', newStatus);
+            }else{
+                prev.delete('status');
+            }
+            
             return prev;
         });
     }
-    const setDuration = (newDuration) =>{
-        setSearchParams(prev=>{
-            prev.set('', newDuration);
-            return prev;
-        });
-    }
+
 
     const clearFilters=()=>{
         setSearchParams({});
@@ -33,10 +38,9 @@ export function useFilters(){
     return{
         building,
         status,
-        duration,
         setBuilding,
-        setDuration,
         setStatus,
-        clearFilters
+        clearFilters,
+
     };
 }

@@ -5,13 +5,15 @@ import api from "./Api";
 
 
 
-export async function getRooms(campus, page=1) {
+export async function getRooms(campus, page=1, building, status) {
     
     try{
         const response= await api.get(`rooms/`,{
             params:{
                 campus: campus ? campus.toLowerCase() : campus,
                 page,
+                building_fenix_id:building || undefined,
+                status:status || undefined,
 
             },
         });
