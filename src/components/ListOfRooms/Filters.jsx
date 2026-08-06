@@ -1,7 +1,7 @@
 
-import refresh from "../assets/refresh.svg"
-import arrowDropDown from "../assets/arrow-drop-down.png"
-import { useFilters } from "../hooks/useFilters";
+import refresh from "../../assets/refresh.svg"
+import arrowDropDown from "../../assets/arrow-drop-down.png"
+import { useFilters } from "../../hooks/useFilters";
 
 
 function Filters(){

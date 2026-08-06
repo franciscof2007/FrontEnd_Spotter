@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SearchPage from './components/SearchPage';
-import CampusSelection from './components/CampusSelection';
-import RoomDetails from './components/RoomDetails';
+import SearchPage from './components/ListOfRooms/SearchPage';
+import CampusSelection from './components/Campus/CampusSelection';
+import RoomDetails from './components/Details/RoomDetails';
 
 function App() {
   return (

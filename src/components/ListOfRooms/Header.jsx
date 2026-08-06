@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import logo from "../assets/hero.png"
+import logo from "../../assets/hero.png"
 
 function Header(){
 

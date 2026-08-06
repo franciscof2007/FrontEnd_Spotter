@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import RoomCard from "./RoomCard";
-import { getRooms } from "../Services/RoomsService";
+import { getRooms } from "../../Services/RoomsService";
 import { useParams } from "react-router-dom";
-import Error from "./Error";
-import SemInternet from "./SemInternet";
-import { useFilters } from "../hooks/useFilters";
-import SemResultadosFiltros from "./SemResultadosFiltros";
+import Error from "../Errors/Error";
+import SemInternet from "../Errors/SemInternet";
+import { useFilters } from "../../hooks/useFilters";
+import SemResultadosFiltros from "../Errors/SemResultadosFiltros";
 
 
 function Rooms(){

@@ -4,8 +4,8 @@ import DetailsHeader from "./DetailsHeader";
 import RoomLocation from "./RoomLocation";
 import RoomAvailability from "./RoomAvailability";
 import RoomEvent from "./RoomEvent";
-import { getRooms, getDetails } from "../Services/RoomsService";
-import { FormatTime } from "../Utils/FormatTime";
+import { getRooms, getDetails } from "../../Services/RoomsService";
+import { FormatTime } from "../../Utils/FormatTime";
 
 
 function RoomDetails() {

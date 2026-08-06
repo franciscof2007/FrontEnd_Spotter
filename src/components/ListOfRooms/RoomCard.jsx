@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import {FormatTime} from '../Utils/FormatTime'
+import {FormatTime} from '../../Utils/FormatTime'
 function RoomCard({ availability, building, floor, room, startTime, endTime, id }){
     const navigate=useNavigate();
 

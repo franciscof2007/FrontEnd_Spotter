@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import AvailabilityIcon from "../assets/available.svg?react";
+import AvailabilityIcon from "../../assets/available.svg?react";
 
 function RoomAvailability({startTime, endTime, availability, availableUntil, lastUpdated}){
     const navigate=useNavigate();

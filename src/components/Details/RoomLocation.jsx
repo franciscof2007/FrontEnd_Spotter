@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
-import LocationIcon from "../assets/location.svg?react";
+import LocationIcon from "../../assets/location.svg?react";
 
 function RoomLocation({ building, floor, room, id, capacity }){
     const navigate=useNavigate();
