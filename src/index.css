@@ -1,2 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
+
+@keyframes textToWhite {
+  0%, 100% {
+    color: #023f62;
+    opacity: 10;
+  }
+  50% {
+    color: #ffffff;
+    opacity: 1;
+  }
+}
+
+.animate-text-fade {
+  animation: textToWhite 4s ease-in-out infinite;
+}

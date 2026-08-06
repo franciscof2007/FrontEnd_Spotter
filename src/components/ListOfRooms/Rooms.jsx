@@ -6,6 +6,7 @@ import Error from "../Errors/Error";
 import SemInternet from "../Errors/SemInternet";
 import { useFilters } from "../../hooks/useFilters";
 import SemResultadosFiltros from "../Errors/SemResultadosFiltros";
+import Loading from "../Errors/Loading";
 
 
 function Rooms(){
@@ -50,7 +51,7 @@ function Rooms(){
     if (error || rooms.length===0){
         return(
             <div>
-                <SemResultadosFiltros/>
+                <error/>
             </div>
         );
     }
