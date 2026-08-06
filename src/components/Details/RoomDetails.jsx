@@ -73,6 +73,8 @@ function RoomDetails() {
       <div>
         <RoomAvailability
           availability={roomInfo.availability }
+          startTime={FormatTime(roomInfo.availableFrom)}
+          endTime={FormatTime(roomInfo.availableUntil)}
           lastUpdated={FormatTime(roomInfo.updatedAt)}
         />
       </div>
