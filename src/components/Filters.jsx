@@ -47,14 +47,6 @@ function Filters(){
            
             </div>
 
-        
-
-
-
-
-
-
-
         </div>
     );
 

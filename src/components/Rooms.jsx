@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import RoomCard from "./RoomCard";
 import { getRooms } from "../Services/RoomsService";
 import { useParams } from "react-router-dom";
+import Error from "./Error";
 import { useFilters } from "../hooks/useFilters";
 
 
@@ -9,7 +10,7 @@ function Rooms(){
     const { campus } = useParams();
     const { building, status, freeFrom, freeUntil } = useFilters();
     const [isloading, setIsloading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(null); 
     const [rooms, setRooms]= useState([]);
 
     useEffect(()=>{
@@ -47,12 +48,11 @@ function Rooms(){
     if (error || rooms.length===0){
         return(
             <div>
-                {error}
+                {/*{error}*/}
+                <Error/>
             </div>
         );
     }
-
-
 
 
     return(
