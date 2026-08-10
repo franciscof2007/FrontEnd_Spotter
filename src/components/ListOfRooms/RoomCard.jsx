@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-
+import {FormatTime} from '../../Utils/FormatTime'
 function RoomCard({ availability, building, floor, room, startTime, endTime, id }){
     const navigate=useNavigate();
 
@@ -14,20 +14,20 @@ function RoomCard({ availability, building, floor, room, startTime, endTime, id 
         statusText = "Disponível";
         textColor = "text-green-400";
         stripeColor = "bg-green-400";
-        subtitle = endTime ? `Livre agora até às ${endTime}` : "Livre agora";
+        subtitle = endTime ? `Livre agora até às ${FormatTime(endTime)}` : "Livre agora";
 
     } else if (statusLower.includes("breve")) {
         statusText = "Disponível em breve";
         textColor = "text-amber-500";
         stripeColor = "bg-amber-500";
-        subtitle = (startTime && endTime) ? `Livre das ${startTime} às ${endTime}` : "Livre em breve";
+        subtitle = (startTime && endTime) ? `Livre das ${FormatTime(startTime)} às ${FormatTime(endTime)}` : "Livre em breve";
         
 
     } else if (statusLower.includes("ocupad")) {
         statusText = "Ocupada";
         textColor = "text-red-900";
         stripeColor = "bg-red-900";
-        subtitle = endTime ? `Ocupada até às ${endTime}` : "Ocupada neste momento";
+        subtitle = endTime ? `Ocupada até às ${FormatTime(endTime)}` : "Ocupada neste momento";
     }
 
     return (

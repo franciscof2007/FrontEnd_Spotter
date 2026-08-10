@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
-import AvailabilityIcon from "../assets/available.svg?react";
+import AvailabilityIcon from "../../assets/available.svg?react";
 
-function RoomAvailability({startTime, endTime, availability, lastUpdated}){
+function RoomAvailability({startTime, endTime, availability, availableUntil, lastUpdated}){
     const navigate=useNavigate();
 
     let subtitle = "Informação indisponível";
@@ -15,7 +15,7 @@ function RoomAvailability({startTime, endTime, availability, lastUpdated}){
         subtitle = (startTime && endTime) ? `Livre das ${startTime} às ${endTime}` : "Livre em breve";
         
 
-    } else if (statusLower.includes("ocupad")) {
+    } else if (statusLower.includes("ocupado")) {
         subtitle = endTime ? `Ocupada até às ${endTime}` : "Ocupada neste momento";
     }
 
@@ -27,7 +27,7 @@ return (
             alt="Ícone" 
             className="ml-16 object-contain text-[#2A6A90] fill-current " 
             />
-                <h1 className="text-xl mb-5 -ml-4 font-bold mt-5 text-[#2A6A90] ">Disponibilidade:</h1>
+                <h1 className="text-xl mb-5 -ml-4 font-bold mt-5 text-[#2A6A90] ">Disponibilidade {availableUntil}  :</h1>
             </div>
         
       <div className="ml-16">

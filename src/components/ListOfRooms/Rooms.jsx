@@ -1,20 +1,25 @@
 import { useState, useEffect } from "react";
 import RoomCard from "./RoomCard";
-import { getRooms } from "../Services/RoomsService";
+import { getRooms } from "../../Services/RoomsService";
 import { useParams } from "react-router-dom";
+import Error from "../Errors/Error";
+import SemInternet from "../Errors/SemInternet";
+import { useFilters } from "../../hooks/useFilters";
+import SemResultadosFiltros from "../Errors/SemResultadosFiltros";
 
 
 function Rooms(){
     const { campus } = useParams();
+    const { building, status, freeFrom, freeUntil, search } = useFilters();
     const [isloading, setIsloading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState(null); 
     const [rooms, setRooms]= useState([]);
 
     useEffect(()=>{
         async function loadRooms() {
             try{
                 
-                const data = await getRooms(campus);
+                const data = await getRooms(campus, 1, building, status, freeFrom, freeUntil, search);
                 setRooms(data.rooms);
 
             }catch(error){
@@ -32,7 +37,7 @@ function Rooms(){
 
 
 
-    },[campus]);
+    },[campus, building, status, freeFrom, freeUntil, search]);
 
     if (isloading){
         return(
@@ -45,12 +50,10 @@ function Rooms(){
     if (error || rooms.length===0){
         return(
             <div>
-                {error}
+                <SemResultadosFiltros/>
             </div>
         );
     }
-
-
 
 
     return(

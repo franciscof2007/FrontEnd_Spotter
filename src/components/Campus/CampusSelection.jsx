@@ -1,7 +1,7 @@
 import { useNavigate} from "react-router-dom";
-import alamedaImage from "../assets/imgalameda.png"
-import tagusImage from "../assets/imgtagus.jpg"
-import logo from "../assets/hero.png"
+import alamedaImage from "../../assets/imgalameda.png"
+import tagusImage from "../../assets/imgtagus.jpg"
+import logo from "../../assets/hero.png"
 
 
 

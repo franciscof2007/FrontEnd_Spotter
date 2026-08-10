@@ -1,18 +1,21 @@
-
 import api from "./Api";
 
 
 
 
 
-export async function getRooms(campus, page=1) {
+export async function getRooms(campus, page=1, building, status, freeFrom, freeUntil, search) {
     
     try{
         const response= await api.get(`rooms/`,{
             params:{
                 campus: campus ? campus.toLowerCase() : campus,
                 page,
-
+                building_fenix_id:building || undefined,
+                status:status || undefined,
+                free_from:freeFrom || undefined,
+                free_until:freeUntil || undefined,
+                search:search || undefined
             },
         });
         const originalData=response.data.results || [];
