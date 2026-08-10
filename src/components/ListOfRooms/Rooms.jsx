@@ -10,7 +10,7 @@ import SemResultadosFiltros from "../Errors/SemResultadosFiltros";
 
 function Rooms(){
     const { campus } = useParams();
-    const { building, status, freeFrom, freeUntil } = useFilters();
+    const { building, status, freeFrom, freeUntil, search } = useFilters();
     const [isloading, setIsloading] = useState(true);
     const [error, setError] = useState(null); 
     const [rooms, setRooms]= useState([]);
@@ -37,7 +37,7 @@ function Rooms(){
 
 
 
-    },[campus, building, status, freeFrom, freeUntil]);
+    },[campus, building, status, freeFrom, freeUntil, search]);
 
     if (isloading){
         return(
