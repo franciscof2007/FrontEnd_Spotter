@@ -19,7 +19,7 @@ function Rooms(){
         async function loadRooms() {
             try{
                 
-                const data = await getRooms(campus, 1, building, status, freeFrom, freeUntil);
+                const data = await getRooms(campus, 1, building, status, freeFrom, freeUntil, search);
                 setRooms(data.rooms);
 
             }catch(error){
