@@ -1,7 +1,7 @@
 import errorIcon from "../../assets/error.svg";
 import refreshIcon from "../../assets/refresh.svg";
 
-function SemInternet() {
+function SemInternet({onRetry}) {
   return (
     <div className="flex flex-col items-center justify-start min-h-screen">
       <div className="w-full h-px bg-[#2A6A90] opacity-50 mt-10 mb-6"></div>
@@ -29,6 +29,7 @@ function SemInternet() {
 
       {/* Botão com flexbox para alinhar texto e ícone lado a lado */}
       <button 
+        onClick={onRetry}
         type="button" 
         className="bg-[#2A6A9066] rounded-full w-64 h-20  cursor-pointer flex items-center justify-center gap-3 px-4"
       >

@@ -10,32 +10,34 @@ import SemResultadosFiltros from "../Errors/SemResultadosFiltros";
 
 function Rooms(){
     const { campus } = useParams();
-    const { building, status, freeFrom, freeUntil, search } = useFilters();
+    const { building, status, freeFrom, freeUntil, search, clearFilters } = useFilters();
     const [isloading, setIsloading] = useState(true);
     const [error, setError] = useState(null); 
     const [rooms, setRooms]= useState([]);
+    const withoutConnection = Boolean(error!==null && (error.type ==='offline' || error.type==='timeout'));
+    const hadFilters = Boolean(building || status || freeFrom || freeUntil || search);
+    
+    async function loadRooms() {
+        try{
+            setIsloading(true);
+            setError(null);
+            const data = await getRooms(campus, 1, building, status, freeFrom, freeUntil, search);
+            setRooms(data.rooms);
 
-    useEffect(()=>{
-        async function loadRooms() {
-            try{
-                
-                const data = await getRooms(campus, 1, building, status, freeFrom, freeUntil, search);
-                setRooms(data.rooms);
+        }catch(error){
+            setError(error);
 
-            }catch(error){
-                setError(error.message);
-
-            }finally{
-                setIsloading(false);
-            }
+        }finally{
+            setIsloading(false);
         }
+    }
+    
+    useEffect(()=>{
         if(campus){
             loadRooms();
-
-        }   
+        }
             
-
-
+            
 
     },[campus, building, status, freeFrom, freeUntil, search]);
 
@@ -47,13 +49,38 @@ function Rooms(){
         );
     }
 
-    if (error || rooms.length===0){
+    if(withoutConnection){
         return(
             <div>
-                <SemResultadosFiltros/>
+                <SemInternet onRetry={loadRooms}/>
             </div>
         );
     }
+
+    if (error){
+        return(
+            <div>
+                <Error onRetry={loadRooms}/>
+            </div>
+        );
+    }
+    if(hadFilters && rooms.length===0){
+        return(
+            <div>
+                <SemResultadosFiltros onClear={clearFilters}/>
+            </div>
+        );
+    }
+
+
+    if (hadFilters!=true && rooms.length===0){
+        return(
+            <div>
+                <Error onRetry={loadRooms}/>
+            </div>
+        );
+    }
+
 
 
     return(
