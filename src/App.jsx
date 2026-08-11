@@ -4,13 +4,14 @@ import CampusSelection from './components/Campus/CampusSelection';
 import RoomDetails from './components/Details/RoomDetails';
 // 1. Importa o novo componente
 import FiltersAvailability from './components/Filters/FiltersAvailability'; // ajusta o caminho do ficheiro se necessário
+import FiltersBuilding from './components/Filters/FiltersBuilding';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         {/* Route de teste temporária */}
-        <Route path="/teste" element={<FiltersAvailability />} />
+        <Route path="/teste" element={<FiltersBuilding />} />
 
         {/* Rotas existentes da tua aplicação */}
         <Route path="/:campus" element={<SearchPage />} />
