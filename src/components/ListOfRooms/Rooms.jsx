@@ -11,7 +11,7 @@ import Loading from "../Errors/Loading";
 
 function Rooms(){
     const { campus } = useParams();
-    const { building, status, freeFrom, freeUntil } = useFilters();
+    const { building, status, freeFrom, freeUntil, search } = useFilters();
     const [isloading, setIsloading] = useState(true);
     const [error, setError] = useState(null); 
     const [rooms, setRooms]= useState([]);
@@ -20,7 +20,7 @@ function Rooms(){
         async function loadRooms() {
             try{
                 
-                const data = await getRooms(campus, 1, building, status, freeFrom, freeUntil);
+                const data = await getRooms(campus, 1, building, status, freeFrom, freeUntil, search);
                 setRooms(data.rooms);
 
             }catch(error){
@@ -38,7 +38,7 @@ function Rooms(){
 
 
 
-    },[campus, building, status, freeFrom, freeUntil]);
+    },[campus, building, status, freeFrom, freeUntil, search]);
 
     if (isloading){
         return(
