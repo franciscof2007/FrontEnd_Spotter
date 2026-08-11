@@ -3,13 +3,13 @@ import logo from "../../assets/hero.png"
 
 function DetailsHeader(){
 
-    const {id} = useParams();
+    const {id,campus} = useParams();
     const navigate=useNavigate();
     
     return(
         <div>
             <div className="flex justify-between px-6 mt-5">
-                <button onClick={()=>navigate(-1)}
+                <button onClick={()=>navigate(`/${campus}`)}
                 className="px-4 py-1 rounded text-3xl">
                 {"<"}
                 </button>

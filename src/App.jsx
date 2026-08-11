@@ -13,7 +13,7 @@ function App() {
        
         <Route path="/" element={<CampusSelection />} /> 
         
-        <Route path="/sala/:id" element={<RoomDetails />} /> 
+        <Route path="/:campus/sala/:id" element={<RoomDetails />} /> 
 
       </Routes>
     </BrowserRouter>
