@@ -27,6 +27,7 @@ function NoInternet() {
       </h1>
       
       <button 
+        onClick={onRetry}
         type="button" 
         className="bg-[#2A6A9066] rounded-full w-64 h-20  cursor-pointer flex items-center justify-center gap-3 px-4"
       >
