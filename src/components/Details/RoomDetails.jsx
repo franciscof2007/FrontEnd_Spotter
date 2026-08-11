@@ -6,7 +6,8 @@ import RoomAvailability from "./RoomAvailability";
 import RoomEvent from "./RoomEvent";
 import { getRooms, getDetails } from "../../Services/RoomsService";
 import { FormatTime } from "../../Utils/FormatTime";
-
+import Loading from "../Errors/Loading";
+import Error from "../Errors/Error";
 
 function RoomDetails() {
   const { id, campus } = useParams();
@@ -47,7 +48,11 @@ function RoomDetails() {
     loadData();
   }, [id, campus]);
 
-  if (!roomInfo) return <p className="text-center mt-10">A carregar...</p>;
+  if (!roomInfo) return <p className="text-center mt-10">
+    <div>
+      <Error/>
+    </div>
+    </p>;
 
   const proximoEvento =
     roomInfo.events && roomInfo.events.length > 0

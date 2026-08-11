@@ -3,9 +3,9 @@ import RoomCard from "./RoomCard";
 import { getRooms } from "../../Services/RoomsService";
 import { useParams } from "react-router-dom";
 import Error from "../Errors/Error";
-import SemInternet from "../Errors/SemInternet";
+import NoInternet from "../Errors/NoInternet";
 import { useFilters } from "../../hooks/useFilters";
-import SemResultadosFiltros from "../Errors/SemResultadosFiltros";
+import NoResultsFilters from "../Errors/NoResultsFilters";
 import Loading from "../Errors/Loading";
 
 
@@ -45,7 +45,7 @@ function Rooms(){
     if (isloading){
         return(
             <div>
-                A procurar salas...
+                <Loading/>
             </div>
         );
     }
@@ -53,7 +53,7 @@ function Rooms(){
     if(withoutConnection){
         return(
             <div>
-                <SemInternet onRetry={loadRooms}/>
+                <NoInternet onRetry={loadRooms}/>
             </div>
         );
     }
@@ -68,7 +68,7 @@ function Rooms(){
     if(hadFilters && rooms.length===0){
         return(
             <div>
-                <SemResultadosFiltros onClear={clearFilters}/>
+                <NoResultsFilters onClear={clearFilters}/>
             </div>
         );
     }
