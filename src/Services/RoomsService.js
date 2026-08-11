@@ -1,3 +1,4 @@
+import { formattedRoomsResponse } from "../Utils/FormatRooms";
 import api from "./Api";
 
 
@@ -18,30 +19,7 @@ export async function getRooms(campus, page=1, building, status, freeFrom, freeU
                 search:search || undefined
             },
         });
-        const originalData=response.data.results || [];
-
-
-        const formattedRooms = originalData.map((room)=>({
-            id:room.fenix_id,
-            name:room.name,
-            building:room.building_name,
-            floor:room.floor,
-            campus:room.campus,
-            availability:room.status,
-            availableFrom:room.available_from,
-            availableUntil:room.available_until
-
-
-
-        }))
-        return{
-           
-            rooms: formattedRooms || [],
-            total: response.data.count,
-            previousPage: response.data.previous,
-            nextPage: response.data.next,
-
-        };
+        return formattedRoomsResponse(response.data);
         
 
    }catch (error)
@@ -50,6 +28,17 @@ export async function getRooms(campus, page=1, building, status, freeFrom, freeU
         throw error;
     }
 
+}
+
+export async function getRoomsByUrl(url){
+    
+    try{
+        const response=await api.get(url);
+        return formattedRoomsResponse(response.data);
+    }catch(error){
+        console.log('error fetching next page of rooms ');
+        throw(error);
+    }
 }
 
 export async function getDetails(id) {

@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import RoomCard from "./RoomCard";
-import { getRooms } from "../../Services/RoomsService";
+import { getRooms, getRoomsByUrl } from "../../Services/RoomsService";
 import { useParams } from "react-router-dom";
 import Error from "../Errors/Error";
 import NoInternet from "../Errors/NoInternet";
@@ -13,17 +13,24 @@ function Rooms(){
     const { campus } = useParams();
     const { building, status, freeFrom, freeUntil, search, clearFilters } = useFilters();
     const [isloading, setIsloading] = useState(true);
+    const [isloadingMore, setIsloadingMore]=useState(false);
     const [error, setError] = useState(null); 
     const [rooms, setRooms]= useState([]);
+    const [nextPage, setNextPage]=useState(null);
+
     const withoutConnection = Boolean(error!==null && (error.type ==='offline' || error.type==='timeout'));
     const hadFilters = Boolean(building || status || freeFrom || freeUntil || search);
     
+    const ref = useRef(null);
+    
+
     async function loadRooms() {
         try{
             setIsloading(true);
             setError(null);
             const data = await getRooms(campus, 1, building, status, freeFrom, freeUntil, search);
             setRooms(data.rooms);
+            setNextPage(data.nextPage);
 
         }catch(error){
             setError(error);
@@ -41,6 +48,45 @@ function Rooms(){
             
 
     },[campus, building, status, freeFrom, freeUntil, search]);
+
+    async function loadMoreRooms(nextPage) {
+        if(isloadingMore || !nextPage){
+            return;
+        }
+        setIsloadingMore(true);
+        try{
+            const data = await getRoomsByUrl(nextPage);
+            setRooms(prev=>([...prev,...data.rooms]));
+            setNextPage(data.nextPage);
+
+        }catch(error)
+        {
+            setError(error);
+        }finally{
+            setIsloadingMore(false);
+        }
+
+    }
+
+    useEffect(()=>{
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting){
+                loadMoreRooms(nextPage);
+            }
+        });
+        if(ref.current){
+            observer.observe(ref.current);
+        }
+
+        return()=>{
+            if(ref.current){
+                observer.unobserve(ref.current);
+            }
+            
+        }
+    }, [nextPage, isloadingMore])
+
+
 
     if (isloading){
         return(
@@ -107,6 +153,7 @@ function Rooms(){
                 
 
             </div>
+            {nextPage && <div ref={ref}></div>}
         </div>
 
     );

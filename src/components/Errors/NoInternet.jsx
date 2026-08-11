@@ -1,7 +1,7 @@
 import errorIcon from "../../assets/error.svg";
 import refreshIcon from "../../assets/refresh.svg";
 
-function NoInternet() {
+function NoInternet({onRetry}) {
   return (
     <div className="flex flex-col items-center justify-start min-h-screen">
       <div className="w-full h-px bg-[#2A6A90] opacity-50 mt-10 mb-6"></div>
