@@ -8,51 +8,61 @@ import { getRooms, getDetails } from "../../Services/RoomsService";
 import { FormatTime } from "../../Utils/FormatTime";
 import Loading from "../Errors/Loading";
 import Error from "../Errors/Error";
+import NoInternet from "../Errors/NoInternet";
 
 function RoomDetails() {
   const { id, campus } = useParams();
   const [roomInfo, setRoomInfo] = useState(null);
+  const [error, setError] = useState(null);
+  const [isloading, setIsloading] =useState(true);
+  const withoutConnection = Boolean(error!==null && (error.type ==='offline' || error.type==='timeout'));
 
 
-
-
-
-  useEffect(() => {
-    async function loadData() {
+  async function loadData() {
       try {
+        setIsloading(true);
+        setError(null)
         const roomData = await getDetails(id);
         if (roomData && roomData.room) {
-          // Une os dados da sala e eventos no mesmo objeto
+          
           setRoomInfo({
             ...roomData.room,
             events: roomData.events || [],
           });
-          return;
+          
         }
       } catch (error) {
-        console.warn("getDetails falhou, a tentar getRooms...", error);
+        setError(error);
+      }finally{
+        setIsloading(false);
       }
+  }
 
-      // Fallback usando a lista geral
-      try {
-        const data = await getRooms(campus);
-        const selectedRoom = data.rooms.find(
-          (room) => String(room.id) === String(id)
-        );
-        setRoomInfo(selectedRoom);
-      } catch (error) {
-        console.error("Erro ao carregar sala:", error);
-      }
-    }
-
+  useEffect(() => {
     loadData();
   }, [id, campus]);
 
-  if (!roomInfo) return <p className="text-center mt-10">
+  if (isloading) return <p className="text-center mt-10">
     <div>
-      <Error/>
+      <Loading/>
     </div>
     </p>;
+
+  if(withoutConnection){
+    return(
+        <div>
+            <NoInternet onRetry={loadData}/>
+        </div>
+    );
+  }
+
+  if (error){
+    return(
+        <div>
+            <Error onRetry={loadData}/>
+        </div>
+    );
+  }
 
   const proximoEvento =
     roomInfo.events && roomInfo.events.length > 0
