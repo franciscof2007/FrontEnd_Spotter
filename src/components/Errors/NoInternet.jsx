@@ -26,8 +26,6 @@ function SemInternet({onRetry}) {
         Verifique a sua ligação com a internet e tente novamente.
       </h1>
       
-
-      {/* Botão com flexbox para alinhar texto e ícone lado a lado */}
       <button 
         onClick={onRetry}
         type="button" 
