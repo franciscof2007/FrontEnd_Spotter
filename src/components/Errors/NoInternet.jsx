@@ -26,8 +26,6 @@ function SemInternet() {
         Verifique a sua ligação com a internet e tente novamente.
       </h1>
       
-
-      {/* Botão com flexbox para alinhar texto e ícone lado a lado */}
       <button 
         type="button" 
         className="bg-[#2A6A9066] rounded-full w-64 h-20  cursor-pointer flex items-center justify-center gap-3 px-4"
