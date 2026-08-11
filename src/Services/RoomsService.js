@@ -4,7 +4,7 @@ import api from "./Api";
 
 
 
-export async function getRooms(campus, page=1, building, status, freeFrom, freeUntil) {
+export async function getRooms(campus, page=1, building, status, freeFrom, freeUntil, search) {
     
     try{
         const response= await api.get(`rooms/`,{
@@ -14,8 +14,8 @@ export async function getRooms(campus, page=1, building, status, freeFrom, freeU
                 building_fenix_id:building || undefined,
                 status:status || undefined,
                 free_from:freeFrom || undefined,
-                free_until:freeUntil || undefined
-
+                free_until:freeUntil || undefined,
+                search:search || undefined
             },
         });
         const originalData=response.data.results || [];
@@ -27,7 +27,6 @@ export async function getRooms(campus, page=1, building, status, freeFrom, freeU
             building:room.building_name,
             floor:room.floor,
             campus:room.campus,
-            capacity:room.normal_capacity,
             availability:room.status,
             availableFrom:room.available_from,
             availableUntil:room.available_until

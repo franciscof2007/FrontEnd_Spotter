@@ -1,6 +1,8 @@
 import search from "../../assets/search.svg"
+import { useFilters } from "../../hooks/useFilters";
 
 function Searchbar(){
+  const { search, setSearch} = useFilters();
     return(
         
     <div className="flex items-center justify-center py-3 mb-2">
@@ -16,7 +18,11 @@ function Searchbar(){
         </svg>
 
 
-      <input type="text" placeholder="Pesquisa da sala" className="w-full text-center outline-none bg-transparent" />
+      <input type="text" 
+      placeholder="Pesquisa da sala" 
+      className="w-full text-center outline-none bg-transparent"  
+      value={search}
+      onChange={(e)=> setSearch(e.target.value)}/>
       </div>
       
     

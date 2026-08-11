@@ -1,7 +1,7 @@
 import errorIcon from "../../assets/error.svg";
 import refreshIcon from "../../assets/refresh.svg";
 
-function Error() {
+function Error({onRetry}) {
   return (
     <div className="flex flex-col items-center justify-start min-h-screen">
       <div className="w-full h-px bg-[#2A6A90] opacity-50 mt-10 mb-6"></div>
@@ -29,6 +29,7 @@ function Error() {
       {/* Botão com flexbox para alinhar texto e ícone lado a lado */}
       <button 
         type="button" 
+        onClick={onRetry}
         className="bg-[#2A6A9066] rounded-full w-64 h-20  cursor-pointer flex items-center justify-center gap-3 px-4"
       >
         <span className="text-xl font-medium text-[#2A6A90]">

@@ -6,6 +6,8 @@ export function useFilters(){
     const status = searchParams.get('status') || '';
     const freeFrom=searchParams.get('free_from') || '';
     const freeUntil=searchParams.get ('free_until') || '';
+    const search =searchParams.get('search') || '';
+
 
     const setBuilding = (newBuilding) =>{
         setSearchParams(prev=>{
@@ -49,6 +51,19 @@ export function useFilters(){
 
     }
 
+    const setSearch = (newSearch) =>{
+        setSearchParams(prev=>{
+            const params = new URLSearchParams(prev);
+            if(newSearch){
+                params.set('search', newSearch);
+            }else{
+                params.delete('search');
+            }
+            
+            return params;
+        });
+    }
+
     const clearFilters=()=>{
         setSearchParams({});
     }
@@ -61,7 +76,9 @@ export function useFilters(){
         clearFilters,
         freeFrom,
         freeUntil,
-        setDuration
+        setDuration,
+        search,
+        setSearch
 
     };
 }
