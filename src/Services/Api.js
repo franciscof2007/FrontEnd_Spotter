@@ -5,6 +5,23 @@ const api=axios.create({
     timeout:60000,
 });
 
+if (import.meta.env.MODE === 'development') {
+    api.interceptors.request.use((config) => {
+        const pageParams = new URLSearchParams(window.location.search);
+        const mockScenario = pageParams.get('mock_scenario');
+
+        if (mockScenario) {
+            config.params = {
+                ...config.params,
+                mock_scenario: mockScenario,
+            };
+        }
+
+        return config;
+    });
+}
+
+
 api.interceptors.response.use(
     response => response,
     (error)=>{
