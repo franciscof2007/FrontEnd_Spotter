@@ -5,7 +5,7 @@ import api from "./Api";
 
 
 
-export async function getRooms(campus, page=1, building, status, date, freeFrom, free_until, search) {
+export async function getRooms(campus, page=1, building, status, date, freeFrom, freeUntil, search) {
     
     try{
         const response= await api.get(`rooms/`,{
