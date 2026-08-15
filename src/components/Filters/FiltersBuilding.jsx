@@ -17,10 +17,10 @@ function FiltersBuilding(){
         <Filters/>
       </div>
 
-    <div className="fixed inset-0 bg-black/60 flex flex-col w-full justify-end items-center">
+    <div className="fixed inset-0 bg-black/60 flex flex-col p-2 justify-end items-center">
       
       {/* O teu Cartão / Modal */}
-      <div className="w-full max-w-md -mb-15 bg-white p-10 rounded-3xl shadow-2xl max-h-[80vh] overflow-y-auto">
+      <div className="w-full max-w-md -mb-12 bg-white p-10 rounded-3xl shadow-2xl max-h-[70vh] overflow-y-auto">
         <div className="flex items-center gap-30 mb-4">
 
         <span className="text-4xl -ml-1 font-extrabold text-[#2A6A90] ">
