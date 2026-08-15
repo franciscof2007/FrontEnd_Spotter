@@ -7,6 +7,7 @@ export function useFilters(){
     const freeFrom=searchParams.get('free_from') || '';
     const freeUntil=searchParams.get ('free_until') || '';
     const search =searchParams.get('search') || '';
+    const date = searchParams.get('date') || '';
 
 
     const setBuilding = (newBuilding) =>{
@@ -33,8 +34,13 @@ export function useFilters(){
         });
     }
 
-    const setDuration = (from, until) =>{
+    const setDuration = (date, from, until) =>{
         setSearchParams(prev=>{
+            if(date){
+                prev.set('date', date);
+            }else{
+                prev.delete('date');
+            }
             if(from){
                 prev.set('free_from', from);
             }else{
@@ -78,7 +84,8 @@ export function useFilters(){
         freeUntil,
         setDuration,
         search,
-        setSearch
+        setSearch,
+        date
 
     };
 }

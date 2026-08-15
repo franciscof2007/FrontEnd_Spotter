@@ -11,7 +11,7 @@ import Loading from "../Errors/Loading";
 
 function Rooms(){
     const { campus } = useParams();
-    const { building, status, freeFrom, freeUntil, search, clearFilters } = useFilters();
+    const { building, status, freeFrom, freeUntil, search, clearFilters, date } = useFilters();
     const [isloading, setIsloading] = useState(true);
     const [isloadingMore, setIsloadingMore]=useState(false);
     const [error, setError] = useState(null); 
@@ -19,7 +19,7 @@ function Rooms(){
     const [nextPage, setNextPage]=useState(null);
 
     const withoutConnection = Boolean(error!==null && (error.type ==='offline' || error.type==='timeout'));
-    const hadFilters = Boolean(building || status || freeFrom || freeUntil || search);
+    const hadFilters = Boolean(building || status || freeFrom || freeUntil || search || date);
     
     const ref = useRef(null);
     
@@ -28,7 +28,7 @@ function Rooms(){
         try{
             setIsloading(true);
             setError(null);
-            const data = await getRooms(campus, 1, building, status, freeFrom, freeUntil, search);
+            const data = await getRooms(campus, 1, building, status, date, freeFrom, freeUntil, search);
             setRooms(data.rooms);
             setNextPage(data.nextPage);
 
@@ -47,7 +47,7 @@ function Rooms(){
             
             
 
-    },[campus, building, status, freeFrom, freeUntil, search]);
+    },[campus, building, status, date, freeFrom, freeUntil, search]);
 
     async function loadMoreRooms(nextPage) {
         if(isloadingMore || !nextPage){
