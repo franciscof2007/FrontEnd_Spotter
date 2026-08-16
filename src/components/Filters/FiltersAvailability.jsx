@@ -20,7 +20,7 @@ function FiltersAvailability(){
     <div className="fixed inset-0 bg-black/60 flex flex-col w-full justify-end items-center p-2 z-50">
       
       {/* O teu Cartão / Modal */}
-      <div className="w-full max-w-md rounded-3xl  p-2 border-t border-gray-200 bg-white p-10 shadow-4xl duration-200">
+      <div className="w-full max-w-md rounded-3xl border-t border-gray-200 bg-white p-10 shadow-4xl duration-200">
         <div className="flex items-center gap-6 mb-4">
 
         <span className="text-4xl -ml-2 font-extrabold text-[#2A6A90] ">
