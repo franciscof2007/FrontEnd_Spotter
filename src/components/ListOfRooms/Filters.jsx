@@ -53,9 +53,9 @@ function Filters(){
            
             </div>
 
-            {openBuilding && <FiltersBuilding />}
-            {availability && <FiltersAvailability />}
-            {Time && <FiltersTime />}
+            {openBuilding && <FiltersBuilding onClose={()=>setOpenBuilding(false)}/>}
+            {availability && <FiltersAvailability onClose={()=>setAvailability(false)}/>}
+            {Time && <FiltersTime onClose={()=>setTime(false)}/>}
 
         </div>
     );

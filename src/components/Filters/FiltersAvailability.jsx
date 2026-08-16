@@ -1,8 +1,10 @@
 import Header from "../ListOfRooms/Header";
 import Searchbar from "../ListOfRooms/Searchbar";
 import Filters from "../ListOfRooms/Filters";
+import { useFilters } from "../../hooks/useFilters";
 
-function FiltersAvailability(){
+function FiltersAvailability({onClose}){
+  const {status, setStatus} = useFilters();
   return (
     <div>
 
@@ -20,6 +22,7 @@ function FiltersAvailability(){
         <div className="w-9 h-9 bg-[#2A6A90]/50 rounded-full">
         <svg 
         xmlns="http://www.w3.org/2000/svg" 
+        onClick={onClose}
         viewBox="0 -960 960 960" 
         className="w-9 h-9 fill: #000000 opacity-70"
         >
@@ -40,6 +43,7 @@ function FiltersAvailability(){
         <div className="flex items-center -ml-4 gap-3 mb-6">
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
+            onClick={()=>setStatus('LIVRE_AGORA')}
             viewBox="0 -960 960 960" 
             className="w-12 h-12 fill-[#2A6A90] shrink-0"
           >
@@ -55,6 +59,7 @@ function FiltersAvailability(){
         <div className="flex items-center -ml-4 gap-3">
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
+            onClick={()=>setStatus('LIVRE_EM_BREVE')}
             viewBox="0 -960 960 960" 
             className="w-12 h-12 fill-[#2A6A90] shrink-0"
           >

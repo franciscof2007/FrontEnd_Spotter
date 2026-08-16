@@ -1,8 +1,13 @@
 import Header from "../ListOfRooms/Header";
 import Searchbar from "../ListOfRooms/Searchbar";
 import Filters from "../ListOfRooms/Filters";
+import { useFilters } from "../../hooks/useFilters";
 
-function FiltersBuilding(){
+function FiltersBuilding({onClose}){
+
+  const {builing, setBuilding} = useFilters();
+
+
   return (
     <div>
 
@@ -20,6 +25,7 @@ function FiltersBuilding(){
         <div className="w-9 h-9 bg-[#2A6A90]/50 rounded-full">
         <svg 
         xmlns="http://www.w3.org/2000/svg" 
+        onClick={onClose}
         viewBox="0 -960 960 960" 
         className="w-9 h-9 fill: #000000 opacity-70"
         >
@@ -74,7 +80,7 @@ function FiltersBuilding(){
           </svg>
 
           <span className="px-4 py-1.5 bg-[#A3C7D6] text-gray-900 rounded-full text-sm font-medium">
-            Pav de Física
+            Pav. de Física
           </span>
         </div>
 
@@ -102,7 +108,7 @@ function FiltersBuilding(){
           </svg>
 
           <span className="px-4 py-1.5 bg-[#A3C7D6] text-gray-900 rounded-full text-sm font-medium">
-            Pav de Matemática
+            Pav. de Matemática
           </span>
         </div>
         
@@ -116,7 +122,7 @@ function FiltersBuilding(){
           </svg>
 
           <span className="px-4 py-1.5 bg-[#A3C7D6] text-gray-900 rounded-full text-sm font-medium">
-            Pav de Mecânica
+            Pav. de Mecânica
           </span>
         </div>
 
@@ -131,7 +137,7 @@ function FiltersBuilding(){
           </svg>
 
           <span className="px-4 py-1.5 bg-[#A3C7D6] text-gray-900 rounded-full text-sm font-medium">
-            Pav de Minas
+            Pav. de Minas
           </span>
         </div>
 

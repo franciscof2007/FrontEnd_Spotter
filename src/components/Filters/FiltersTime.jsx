@@ -2,8 +2,11 @@ import { useState } from "react";
 import Header from "../ListOfRooms/Header";
 import Searchbar from "../ListOfRooms/Searchbar";
 import Filters from "../ListOfRooms/Filters";
+import { useFilters } from "../../hooks/useFilters";
 
-function FiltersTime() {
+function FiltersTime({onClose}) {
+
+  const {setDuration}=useFilters();
   // Funções de apoio para obter valores padrão
   const getTodayString = () => new Date().toISOString().split("T")[0]; // YYYY-MM-DD
   const getCurrentTimeString = () => {
@@ -26,11 +29,7 @@ function FiltersTime() {
       return;
     }
 
-    console.log("Filtros aplicados:", {
-      date: selectedDate,
-      startTime,
-      endTime,
-    });
+    setDuration(selectedDate, startTime, endTime);
   };
 
   return (
@@ -51,6 +50,7 @@ function FiltersTime() {
 
             <div className="w-12 h-12 bg-[#2A6A90]/20 rounded-full flex items-center justify-center shrink-0">
               <svg
+                onClick={onClose}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 -960 960 960"
                 className="w-7 h-7 fill-[#2A6A90]"
