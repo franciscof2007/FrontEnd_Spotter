@@ -5,17 +5,7 @@ import Filters from "../ListOfRooms/Filters";
 function FiltersAvailability(){
   return (
     <div>
-    <div>
-        <Header/>
-      </div>
 
-      <div>
-        <Searchbar/>
-      </div>
-
-      <div>
-        <Filters/>
-      </div>
 
     <div className="fixed inset-0 bg-black/60 flex flex-col w-full justify-end items-center p-2 z-50">
       

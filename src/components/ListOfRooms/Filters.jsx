@@ -1,12 +1,18 @@
-
+import { useState } from "react";
 import refresh from "../../assets/refresh.svg"
 import arrowDropDown from "../../assets/arrow-drop-down.png"
 import { useFilters } from "../../hooks/useFilters";
+import FiltersAvailability from "../Filters/FiltersAvailability"
+import FiltersBuilding from "../Filters/FiltersBuilding"
+import FiltersTime from "../Filters/FiltersTime"
 
 
 function Filters(){
     const {building, setBuilding, status, setStatus, freeFrom, freeUntil, setDuration, clearFilters, date} = useFilters();
-    
+    const [openBuilding, setOpenBuilding] = useState(false);
+    const [Time, setTime] = useState(false);
+    const [availability, setAvailability] = useState(false);
+
     return(
         <div className="flex px-2 align-baseline items-center justify-center mr-5">
 
@@ -24,7 +30,7 @@ function Filters(){
 
             <div className="flex flex-1 gap-3">
                 <div className="flex-1 flex items-center justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0"
-                onClick={()=>setBuilding('2448131361042')}
+                onClick={()=>setOpenBuilding(true)}
                 
                 >
                     <span className="truncate">Edifícios</span>
@@ -32,20 +38,24 @@ function Filters(){
                 </div>
                 
                 <div className="flex-1 flex items-center justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0"
-                onClick={()=>setStatus('LIVRE_AGORA')}
+                onClick={()=>setAvailability(true)}
                 >
                     <span className="truncate">Disp.</span>
                     <img src={arrowDropDown} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
                 </div>
                 
                 <div className="flex-1 flex items-center justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0"
-                onClick={()=>setDuration('2026-08-15','22:00', '23:00')}
+                onClick={()=>setTime(true)}
                 >
                     <span className="truncate">Duração</span>
                     <img src={arrowDropDown} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
                 </div>
            
             </div>
+
+            {openBuilding && <FiltersBuilding />}
+            {availability && <FiltersAvailability />}
+            {Time && <FiltersTime />}
 
         </div>
     );

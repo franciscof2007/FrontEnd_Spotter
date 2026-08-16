@@ -35,17 +35,7 @@ function FiltersTime() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div>
-        <Header />
-      </div>
 
-      <div>
-        <Searchbar />
-      </div>
-
-      <div>
-        <Filters />
-      </div>
 
       {/* Modal / Overlay */}
       <div className="fixed inset-0 bg-black/60 flex flex-col w-full justify-end items-center p-4 z-50">
