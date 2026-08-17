@@ -14,11 +14,11 @@ function Filters(){
     const [availability, setAvailability] = useState(false);
 
     return(
-        <div className="flex px-2 align-baseline items-center justify-center mr-5">
+        <div className="flex px-1 align-baseline items-center justify-center gap-3">
 
 
             <svg xmlns="http://www.w3.org/2000/svg" 
-            className="w-10 h-7 ml-3 mt-1 text-gray-800"
+            className="w-10 h-7 mt-1 text-gray-800"
             onClick={()=>clearFilters()}
             height="24px" 
             viewBox="0 -960 960 960" 
@@ -29,7 +29,7 @@ function Filters(){
 
 
             <div className="flex flex-1 gap-3">
-                <div className="flex-1 flex items-center justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0"
+                <div className="flex-1 flex items-center font-medium justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0 text-xs"
                 onClick={()=>setOpenBuilding(true)}
                 
                 >
@@ -37,17 +37,17 @@ function Filters(){
                     <img src={arrowDropDown} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
                 </div>
                 
-                <div className="flex-1 flex items-center justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0"
+                <div className="flex-1 flex items-center justify-between text-xs font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0"
                 onClick={()=>setAvailability(true)}
                 >
-                    <span className="truncate">Disp.</span>
+                    <span className="truncate">Dispon.</span>
                     <img src={arrowDropDown} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
                 </div>
                 
-                <div className="flex-1 flex items-center justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0"
+                <div className="flex-1 flex items-center text-xs justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0"
                 onClick={()=>setTime(true)}
                 >
-                    <span className="truncate">Duração</span>
+                    <span className="truncate">Horário</span>
                     <img src={arrowDropDown} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
                 </div>
            

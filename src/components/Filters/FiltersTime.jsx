@@ -33,64 +33,59 @@ function FiltersTime({onClose}) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+      <div>
+        <div className="fixed inset-0 bg-black/60 flex flex-col w-full justify-end items-center p-2 z-50">
+      
+      {/* O teu Cartão / Modal */}
+      <div className="w-full max-w-md rounded-4xl border-t border-gray-200 bg-white p-10 shadow-4xl duration-200">
+        <div className="flex items-center gap-6 mb-10">
 
+        <span className="text-3xl -ml-2 font-extrabold text-[#2A6A90] ">
+            Horário
+        </span>
 
-      {/* Modal / Overlay */}
-      <div className="fixed inset-0 bg-black/60 flex flex-col w-full justify-end items-center p-4 z-50">
-        
-        {/* Cartão do Modal */}
-        <div className="w-full max-w-md rounded-3xl border-t border-gray-200 bg-white p-10 shadow-4xl duration-200">
-          
-          {/* Cabeçalho */}
-          <div className="flex items-center justify-between mb-3 shrink-0">
-            <span className="text-3xl font-extrabold text-[#2A6A90]">
-              Horário
-            </span>
-
-            <div className="w-12 h-12 bg-[#2A6A90]/20 rounded-full flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 bg-[#2A6A90]/20 rounded-full flex items-center justify-center shrink-0 ml-25">
               <svg
                 onClick={onClose}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 -960 960 960"
-                className="w-7 h-7 fill-[#2A6A90]"
+                className="w-8 h-8 fill-[#2A6A90]"
               >
                 <path d="m336-280-56-56 144-144-144-143 56-56 144 144 143-144 56 56-144 143 144 144-56 56-143-144-144 144Z" />
               </svg>
             </div>
           </div>
 
-          <div className="w-full h-px bg-black/10 mb-4 shrink-0"></div>
-
+      
           {/* Campo Único: Dia */}
           <div className="mb-4">
-            <label className="block text-sm text-gray-600 mb-2 font-medium">
+            <label className="block text-sm text-gray-600 mb-2 ml-2 font-medium">
               Dia:
             </label>
             <input 
               type="date"
               value={selectedDate}
               onChange={(e) => setSelectedDate(e.target.value)}
-              className="w-full -ml-4 p-3 max-w-xs mx-auto block bg-gray-100 border border-gray-200 rounded-2xl text-base font-semibold text-gray-800 text-center outline-none focus:ring-2 focus:ring-[#2A6A90]"
+              className="w-full mb-1 p-3 max-w-xs mx-auto block bg-gray-100 border border-gray-200 rounded-2xl text-base font-semibold text-gray-800 text-center outline-none focus:ring-2 focus:ring-[#2A6A90]"
             />
           </div>
 
           {/* Campos de Hora: Desde as / Até às */}
           <div className="grid -ml-7 grid-cols-2 gap-10 mb-6">
             <div>
-              <label className="block text-sm text-gray-600 mb-2 font-medium">
+              <label className="block text-sm text-gray-600 mb-2 ml-5 font-medium">
                 Desde as:
               </label>
               <input
                 type="time"
                 value={startTime}
                 onChange={(e) => setStartTime(e.target.value)}
-                className="w-full p-3 bg-gray-100 border border-gray-200 rounded-xl text-base font-semibold text-gray-800 text-center outline-none focus:ring-2 focus:ring-[#2A6A90]"
+                className="w-full p-3 bg-gray-100 border border-gray-200 ml-4 rounded-xl text-base font-semibold text-gray-800 text-center outline-none focus:ring-2 focus:ring-[#2A6A90]"
               />
             </div>
 
             <div>
-              <label className="block text-sm text-gray-600 mb-2 font-medium">
+              <label className="block text-sm text-gray-600 mb-2 ml-2 font-medium">
                 Até às:
               </label>
               <input
