@@ -33,7 +33,7 @@ function RoomCard({ availability, building, floor, room, startTime, endTime, id 
     return (
         <div
         onClick={() => navigate(`/${campus}/sala/${id}`)}
-        className="border-2 border-gray-400 rounded p-4 bg-white cursor-pointer"
+        className="border-2 border-gray-300 rounded mb-1 p-4 bg-white cursor-pointer"
         >
         <div className="flex justify-between items-center mb-1">
         <span className={`font-bold text-xl ${textColor}`}>

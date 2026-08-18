@@ -8,7 +8,7 @@ function DetailsHeader(){
     
     return(
         <div>
-            <div className="flex justify-between px-6 mt-5">
+            <div className="flex justify-between px-6 mt-3">
                 <button onClick={()=>navigate(`/${campus}`)}
                 className="px-4 py-1 rounded text-3xl">
                 {"<"}

@@ -17,21 +17,21 @@ function FiltersAvailability({ onClose }) {
 
   return (
     <div>
-      <div className="fixed inset-0 bg-black/60 flex flex-col w-full justify-end items-center p-2 z-50">
+      <div className="fixed inset-0 bg-black/60 flex flex-col w-full justify-end items-center -mb-3 p-3 z-50">
         
         {/* Cartão / Modal */}
         <div className="w-full max-w-md rounded-3xl border-t border-gray-200 bg-white p-10 shadow-4xl duration-200">
           <div className="flex items-center gap-6 mb-4">
-            <span className="text-3xl -ml-2 font-extrabold text-[#2A6A90]">
+            <span className="text-3xl -ml-2 font-bold text-[#2A6A90]">
               Disponibilidade
             </span>
 
-            <div className="w-11 h-11 bg-[#2A6A90]/20 rounded-full flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 bg-[#2A6A90]/20 rounded-full flex ml-4 items-center justify-center shrink-0">
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 onClick={onClose}
                 viewBox="0 -960 960 960" 
-                className="w-8 h-8 fill-[#2A6A90] cursor-pointer"
+                className="w-8 h-8 fill-[#2A6A90]/70 cursor-pointer"
               >
                 <path d="m336-280-56-56 144-144-144-143 56-56 144 144 143-144 56 56-144 143 144 144-56 56-143-144-144 144Z"/>
               </svg>
@@ -42,8 +42,8 @@ function FiltersAvailability({ onClose }) {
           <div className="w-5/5 -ml-4 h-px bg-[#000000]/10 mb-2"></div>
 
           {/* Texto Explicativo */}
-          <p className="text-sm text-gray-600 -ml-2 mb-8 text-left leading-relaxed">
-            Apresenta, nos resultados, apenas salas disponíveis agora ou em breve (até 15 minutos).
+          <p className="text-sm text-gray-600 -ml-3 mb-15 text-left leading-relaxed">
+            Apresenta apenas salas disponíveis agora ou em breve (até 15 minutos).
           </p>
 
           {/* Opção 1: Disponível */}

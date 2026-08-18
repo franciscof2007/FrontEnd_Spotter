@@ -34,53 +34,61 @@ function FiltersTime({onClose}) {
 
   return (
       <div>
-        <div className="fixed inset-0 bg-black/60 flex flex-col w-full justify-end items-center p-2 z-50">
+        <div className="fixed inset-0 bg-black/60 flex flex-col w-full justify-end items-center p-3 z-50">
       
       {/* O teu Cartão / Modal */}
-      <div className="w-full max-w-md rounded-4xl border-t border-gray-200 bg-white p-10 shadow-4xl duration-200">
-        <div className="flex items-center gap-6 mb-10">
+      <div className="rounded-3xl border-t -mb-2 border-gray-200 bg-white p-10 shadow-2xl max-w-md">
+        <div className="flex items-center gap-6 mb-4">
 
-        <span className="text-3xl -ml-2 font-extrabold text-[#2A6A90] ">
+        <span className="text-3xl font-bold text-[#2A6A90] ">
             Horário
         </span>
 
-            <div className="w-12 h-12 bg-[#2A6A90]/20 rounded-full flex items-center justify-center shrink-0 ml-25">
+            <div className="w-9 h-9 bg-[#2A6A90]/20 rounded-full flex items-center justify-center shrink-0 ml-30">
               <svg
                 onClick={onClose}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 -960 960 960"
-                className="w-8 h-8 fill-[#2A6A90]"
+                className="w-8 h-8 fill-[#2A6A90]/70"
               >
                 <path d="m336-280-56-56 144-144-144-143 56-56 144 144 143-144 56 56-144 143 144 144-56 56-143-144-144 144Z" />
               </svg>
             </div>
           </div>
 
+          {/* Linha Divisória */}
+        <div className="w-5/5 -ml-4 h-px bg-[#000000]/10 mb-2"></div>
+
+        {/* Texto Explicativo */}
+        <p className="text-sm text-gray-600 -ml-2 mb-10 text-left leading-relaxed">
+          Apresenta apenas salas válidas no dia e horário selecionado.
+        </p>
+
       
           {/* Campo Único: Dia */}
-          <div className="mb-4">
-            <label className="block text-sm text-gray-600 mb-2 ml-2 font-medium">
+          <div className="mb-9">
+            <label className="block text-sm text-gray-600 ml-2 mb-2 font-medium">
               Dia:
             </label>
             <input 
               type="date"
               value={selectedDate}
               onChange={(e) => setSelectedDate(e.target.value)}
-              className="w-full mb-1 p-3 max-w-xs mx-auto block bg-gray-100 border border-gray-200 rounded-2xl text-base font-semibold text-gray-800 text-center outline-none focus:ring-2 focus:ring-[#2A6A90]"
+              className="w-full mb-3 -ml-3 p-3 max-w-xs mx-auto block bg-gray-100 border border-gray-200 rounded-2xl text-base font-semibold text-gray-800 text-center outline-none focus:ring-2 focus:ring-[#2A6A90]"
             />
           </div>
 
           {/* Campos de Hora: Desde as / Até às */}
-          <div className="grid -ml-7 grid-cols-2 gap-10 mb-6">
+          <div className="grid -ml-7 grid-cols-2 gap-15 mb-6">
             <div>
-              <label className="block text-sm text-gray-600 mb-2 ml-5 font-medium">
+              <label className="block text-sm text-gray-600 mb-2 ml-3 font-medium">
                 Desde as:
               </label>
               <input
                 type="time"
                 value={startTime}
                 onChange={(e) => setStartTime(e.target.value)}
-                className="w-full p-3 bg-gray-100 border border-gray-200 ml-4 rounded-xl text-base font-semibold text-gray-800 text-center outline-none focus:ring-2 focus:ring-[#2A6A90]"
+                className="w-full p-3 bg-gray-100 border border-gray-200 ml-2 rounded-xl text-base font-semibold text-gray-800 text-center outline-none focus:ring-2 focus:ring-[#2A6A90]"
               />
             </div>
 
@@ -92,7 +100,7 @@ function FiltersTime({onClose}) {
                 type="time"
                 value={endTime}
                 onChange={(e) => setEndTime(e.target.value)}
-                className="w-full p-3 bg-gray-100 border border-gray-200 rounded-xl text-base font-semibold text-gray-800 text-center outline-none focus:ring-2 focus:ring-[#2A6A90]"
+                className="w-full p-3 bg-gray-100 border border-gray-200 -ml-1 rounded-xl text-base font-semibold text-gray-800 text-center outline-none focus:ring-2 focus:ring-[#2A6A90]"
               />
             </div>
           </div>

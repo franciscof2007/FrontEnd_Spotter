@@ -14,7 +14,7 @@ function Filters(){
     const [availability, setAvailability] = useState(false);
 
     return(
-        <div className="flex px-1 align-baseline items-center justify-center gap-3">
+        <div className="flex px-1 align-baseline items-center justify-center -ml-1">
 
 
             <svg xmlns="http://www.w3.org/2000/svg" 
