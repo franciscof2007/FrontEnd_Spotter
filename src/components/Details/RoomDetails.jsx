@@ -10,6 +10,7 @@ import Loading from "../Errors/Loading";
 import Error from "../Errors/Error";
 import NoInternet from "../Errors/NoInternet";
 import {timeToMinutes} from "../../Utils/TimeToMinutes";
+import EventIcon from "../../assets/alarm.svg?react";
 
 function RoomDetails() {
   const { id, campus } = useParams();
@@ -102,12 +103,16 @@ function RoomDetails() {
       </div>
 
       <div>
+        <div className="mt-8 flex gap-8 items-center">
+          <EventIcon className="ml-16 w-8 h-8 text-[#2A6A90] fill-current" />
+          <h1 className="text-xl font-bold text-[#2A6A90]">Evento:</h1>
+        </div>
         {eventosRestantes.length>0 ? (
           eventosRestantes.map((event)=>(
             <RoomEvent
             key={event.id || event.start}
-            start={FormatTime(event.start)}
-            end={FormatTime(event.end)}
+            start={(event.start.slice(0,5))}
+            end={(event.end.slice(0,5))}
             type={event.type}
             course={event.course}
             info={event.info}

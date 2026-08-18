@@ -111,12 +111,33 @@ export const handlers=[
                     last_updated_at: "2026-08-12T10:00:00Z",
                     events: [
                         {
-                            start_time: "2026-08-12T20:00:00Z",
-                            end_time: "2026-08-12T22:00:00Z",
-                            event_type: "Aula",
-                            course_info: "Programação em JavaScript",
-                            info: null
-                        }
+                                    "start_time": "16:00:00",
+                                    "end_time": "17:30:00",
+                                    "event_type": "MANUTENCAO",
+                                    "course_info": "Curso Eng. 1",
+                                    "info": "Gerado para fins de teste"
+                                },
+                                {
+                                    "start_time": "17:30:00",
+                                    "end_time": "18:00:00",
+                                    "event_type": "AULA",
+                                    "course_info": "Curso Eng. 5",
+                                    "info": "Gerado para fins de teste"
+                                },
+                                {
+                                    "start_time": "18:00:00",
+                                    "end_time": "18:30:00",
+                                    "event_type": "AULA",
+                                    "course_info": "Curso Eng. 3",
+                                    "info": "Gerado para fins de teste"
+                                },
+                                {   
+                                    "start_time": "19:00:00",
+                                    "end_time": "19:30:00",
+                                    "event_type": "REUNIAO",
+                                    "course_info": "Curso Eng. 3",
+                                    "info": "Gerado para fins de teste"
+                                }
                     ]
                 });
         }
