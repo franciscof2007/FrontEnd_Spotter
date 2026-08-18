@@ -6,7 +6,7 @@ function RoomLocation({ building, floor, room, id, capacity }){
 return (
     <div>
         <div className="-mt-12 flex gap-8">
-            <LocationIcon className="ml-16 object-contain text-[#2A6A90] fill-current" />
+            <LocationIcon className="ml-16 mt-6 mb-5 object-contain text-[#2A6A90] fill-current" />
             
                 <h1 className="text-xl mb-6 -ml-4 mt-6 font-bold text-[#2A6A90] ">Localização:</h1>
             </div>

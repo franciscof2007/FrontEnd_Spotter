@@ -21,9 +21,9 @@ function RoomAvailability({startTime, endTime, availability, availableFrom, last
 
 return (
     <div>
-        <div className="mt-12 flex gap-8">
+        <div className="mt-12 flex  gap-8">
             <AvailabilityIcon 
-            className="ml-16 object-contain text-[#2A6A90] fill-current " 
+            className="ml-16 object-contain text-[#2A6A90] fill-current mt-5 " 
             />
                 <h1 className="text-xl mb-5 -ml-4 font-bold mt-5 text-[#2A6A90] ">Disponibilidade :</h1>
             </div>
