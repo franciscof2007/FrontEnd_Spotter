@@ -44,6 +44,7 @@ function FiltersBuilding({onClose}){
 
         <div className="flex items-center mb-2 -ml-4 gap-3">
           <svg 
+            onClick={()=>setBuilding("2448131361060")}
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 -960 960 960" 
             className="w-11 h-11 ml-5 fill-[#2A6A90] shrink-0"
@@ -58,6 +59,7 @@ function FiltersBuilding({onClose}){
 
         <div className="flex items-center mb-2 -ml-4 gap-3">
           <svg 
+            onClick={()=>setBuilding("2448131361042")}
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 -960 960 960" 
             className="w-11 h-11 ml-5 fill-[#2A6A90] shrink-0"
@@ -72,6 +74,7 @@ function FiltersBuilding({onClose}){
 
         <div className="flex items-center mb-2 -ml-4 gap-3">
           <svg 
+            onClick={()=>setBuilding("2448131361051")}
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 -960 960 960" 
             className="w-11 h-11 ml-5 fill-[#2A6A90] shrink-0"
@@ -86,6 +89,7 @@ function FiltersBuilding({onClose}){
 
         <div className="flex items-center -ml-4 mb-2 gap-3">
           <svg 
+            onClick={()=>setBuilding("2448131361133")}
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 -960 960 960" 
             className="w-11 h-11 ml-5 fill-[#2A6A90] shrink-0"
@@ -101,6 +105,7 @@ function FiltersBuilding({onClose}){
 
           <div className="flex items-center -ml-4 mb-2 gap-3">
           <svg 
+            onClick={()=>setBuilding("2448131361173")}
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 -960 960 960" 
             className="w-11 h-11 ml-5 fill-[#2A6A90] shrink-0"
@@ -116,6 +121,7 @@ function FiltersBuilding({onClose}){
 
         <div className="flex items-center -ml-4 mb-2 gap-3">
           <svg 
+            onClick={()=>setBuilding("2448131361129")}
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 -960 960 960" 
             className="w-11 h-11 ml-5 fill-[#2A6A90] shrink-0"
@@ -131,6 +137,7 @@ function FiltersBuilding({onClose}){
 
         <div className="flex items-center -ml-4 mb-2 gap-3">
           <svg 
+            onClick={()=>setBuilding("2448131361119")}
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 -960 960 960" 
             className="w-11 h-11 ml-5 fill-[#2A6A90] shrink-0"
@@ -144,7 +151,8 @@ function FiltersBuilding({onClose}){
         </div>
         
         <div className="flex items-center mb-2 -ml-4 gap-3">
-          <svg 
+          <svg
+            onClick={()=>setBuilding("2448131361165")} 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 -960 960 960" 
             className="w-11 h-11 ml-5 fill-[#2A6A90] shrink-0"
@@ -158,7 +166,8 @@ function FiltersBuilding({onClose}){
         </div>
 
       <div className="flex items-center mb-2 -ml-4 gap-3">
-          <svg 
+          <svg
+            onClick={()=>setBuilding("2448131361161")} 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 -960 960 960" 
             className="w-11 h-11 ml-5 fill-[#2A6A90] shrink-0"
@@ -172,7 +181,8 @@ function FiltersBuilding({onClose}){
         </div>
 
         <div className="flex items-center mb-2 -ml-4 gap-3">
-          <svg 
+          <svg
+            onClick={()=>setBuilding("2448131361155")} 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 -960 960 960" 
             className="w-11 h-11 ml-5 fill-[#2A6A90] shrink-0"
@@ -186,7 +196,8 @@ function FiltersBuilding({onClose}){
         </div>
 
         <div className="flex items-center mb-2 -ml-4 gap-3">
-          <svg 
+          <svg
+            onClick={()=>setBuilding("2448131361150")} 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 -960 960 960" 
             className="w-11 h-11 ml-5 fill-[#2A6A90] shrink-0"
@@ -200,7 +211,8 @@ function FiltersBuilding({onClose}){
         </div>
 
         <div className="flex items-center mb-2 -ml-4 gap-3">
-          <svg 
+          <svg
+            onClick={()=>setBuilding("2448131361139")} 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 -960 960 960" 
             className="w-11 h-11 ml-5 fill-[#2A6A90] shrink-0"
@@ -215,7 +227,8 @@ function FiltersBuilding({onClose}){
 
 
         <div className="flex items-center mb-2 -ml-4 gap-3">
-          <svg 
+          <svg
+            onClick={()=>setBuilding("2448131361091")} 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 -960 960 960" 
             className="w-11 h-11 ml-5 fill-[#2A6A90] shrink-0"
@@ -229,7 +242,8 @@ function FiltersBuilding({onClose}){
         </div>
 
         <div className="flex items-center mb-2 -ml-4 gap-3">
-          <svg 
+          <svg
+            onClick={()=>setBuilding("2448131361074")} 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 -960 960 960" 
             className="w-11 h-11 ml-5 fill-[#2A6A90] shrink-0"

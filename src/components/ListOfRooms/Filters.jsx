@@ -29,7 +29,7 @@ function Filters(){
 
 
             <div className="flex flex-1 gap-3">
-                <div className="flex-1 flex items-center font-medium justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0 text-xs"
+                <div className="flex-1 flex items-center justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0 text-xs"
                 onClick={()=>setOpenBuilding(true)}
                 
                 >

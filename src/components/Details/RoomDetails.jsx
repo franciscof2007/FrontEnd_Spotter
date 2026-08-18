@@ -4,11 +4,12 @@ import DetailsHeader from "./DetailsHeader";
 import RoomLocation from "./RoomLocation";
 import RoomAvailability from "./RoomAvailability";
 import RoomEvent from "./RoomEvent";
-import { getRooms, getDetails } from "../../Services/RoomsService";
+import { getDetails } from "../../Services/RoomsService";
 import { FormatTime } from "../../Utils/FormatTime";
 import Loading from "../Errors/Loading";
 import Error from "../Errors/Error";
 import NoInternet from "../Errors/NoInternet";
+import {timeToMinutes} from "../../Utils/TimeToMinutes";
 
 function RoomDetails() {
   const { id, campus } = useParams();
@@ -16,6 +17,8 @@ function RoomDetails() {
   const [error, setError] = useState(null);
   const [isloading, setIsloading] =useState(true);
   const withoutConnection = Boolean(error!==null && (error.type ==='offline' || error.type==='timeout'));
+  const now = new Date();
+  const currentMinutes = now.getHours() *60 + now.getMinutes()
 
 
   async function loadData() {
@@ -64,10 +67,14 @@ function RoomDetails() {
     );
   }
 
-  const proximoEvento =
-    roomInfo.events && roomInfo.events.length > 0
-      ? roomInfo.events[0]
-      : null;
+  const eventosRestantes = roomInfo.events 
+    ? roomInfo.events.filter((event)=>{
+      const eventEnd = event.end;
+      const eventEndMinutes = timeToMinutes(eventEnd);
+
+      return eventEndMinutes > currentMinutes;
+    })
+    :[];
 
   
   return (
@@ -95,14 +102,18 @@ function RoomDetails() {
       </div>
 
       <div>
-        {proximoEvento ? (
-          <RoomEvent
-            start={FormatTime(proximoEvento.start || proximoEvento.start_time)}
-            end={FormatTime(proximoEvento.end || proximoEvento.end_time)}
-            type={proximoEvento.type || proximoEvento.event_type}
-            course={proximoEvento.course || proximoEvento.course_info}
-            info={proximoEvento.info}
+        {eventosRestantes.length>0 ? (
+          eventosRestantes.map((event)=>(
+            <RoomEvent
+            key={event.id || event.start}
+            start={FormatTime(event.start)}
+            end={FormatTime(event.end)}
+            type={event.type}
+            course={event.course}
+            info={event.info}
           />
+          ))
+
         ) : (
           <p className="text-gray-500 italic mt-4 ml-16">
             Sem eventos agendados.

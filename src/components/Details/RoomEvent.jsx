@@ -8,7 +8,7 @@ return (
    <div>
       <div className="mt-8 flex gap-8 items-center">
         <EventIcon className="ml-16 w-8 h-8 text-[#2A6A90] fill-current" />
-        <h1 className="text-xl font-bold text-[#2A6A90]">Próximo Evento:</h1>
+        <h1 className="text-xl font-bold text-[#2A6A90]">Evento:</h1>
       </div>
 
       <div className="rounded ml-16 mr-12 mt-2 p-4 bg-[#2A6A9066] text-gray-900">
