@@ -27,7 +27,7 @@ function CampusSelection(){
             <h1 className="text-3xl mb-12 mt-5 text-center">
                 Qual é o teu Campus?
             </h1>
-            <div className="flex flex-col mt-16 gap-4 w-full">
+            <div className="flex flex-col mt-16 gap-4 w-full items-center">
                 <CampusOption name="Alameda" image={alamedaImage}/>
                 <CampusOption name="TagusPark" image={tagusImage}/>
             </div>
