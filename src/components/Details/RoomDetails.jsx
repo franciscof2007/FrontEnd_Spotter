@@ -105,7 +105,7 @@ function RoomDetails() {
       <div>
         <div className="mt-8 flex gap-8 items-center">
           <EventIcon className="ml-16 w-8 h-8 text-[#2A6A90] fill-current" />
-          <h1 className="text-xl font-bold text-[#2A6A90]">Evento:</h1>
+          <h1 className="text-xl font-bold text-[#2A6A90]">Próximos Eventos:</h1>
         </div>
         {eventosRestantes.length>0 ? (
           eventosRestantes.map((event)=>(

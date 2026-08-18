@@ -5,7 +5,7 @@ import { useFilters } from "../../hooks/useFilters";
 
 function FiltersBuilding({onClose}){
 
-  const {builing, setBuilding} = useFilters();
+  const {building, setBuilding} = useFilters();
 
 
   return (
