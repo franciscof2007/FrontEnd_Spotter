@@ -8,15 +8,15 @@ return (
    <div>
 
 
-      <div className="rounded ml-16 mr-12 mt-2 p-4 bg-[#2A6A9066] text-gray-900">
+      <div className="rounded-xl ml-12 mr-12 mt-6 p-4 bg-[#2A6A9066]/50 text-gray-900">
         {course && (
-          <div className="font-bold text-xl mb-1">
+          <div className="font-bold text-lg text-[#2A6A90] mb-1">
             {course}
           </div>
         )}
 
         {type && (
-          <div className="font-medium text-base mb-2">
+          <div className="font-medium text-md text-[#2A6A90] mb-2">
             {type}
           </div>
         )}

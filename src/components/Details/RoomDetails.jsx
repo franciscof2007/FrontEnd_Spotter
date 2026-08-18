@@ -103,8 +103,8 @@ function RoomDetails() {
       </div>
 
       <div>
-        <div className="mt-8 flex gap-8 items-center">
-          <EventIcon className="ml-16 w-8 h-8 text-[#2A6A90] fill-current" />
+        <div className="mt-12 flex gap-4 items-center">
+          <EventIcon className="ml-16 w-7 h-7 text-[#2A6A90] fill-current" />
           <h1 className="text-xl font-bold text-[#2A6A90]">Próximos Eventos:</h1>
         </div>
         {eventosRestantes.length>0 ? (

@@ -16,8 +16,8 @@ function DetailsHeader(){
                 <img src={logo} alt="logotipo do spotter" className="ml-3 w-10"/>
             </div>
 
-            <div className="p-8">
-                <h1 className="text-4xl mb-12 font-bold text-[#2A6A90] text-center">Detalhes da Sala</h1>
+            <div className="p-4">
+                <h1 className="text-4xl mb-17 font-bold text-[#2A6A90] text-center">Detalhes da Sala</h1>
             </div>
         </div>
     );
