@@ -5,7 +5,7 @@ function RoomLocation({ building, floor, room, id, capacity }){
     const navigate=useNavigate();
 return (
     <div>
-        <div className="-mt-12 flex gap-8">
+        <div className="-mt-14 flex gap-8">
             <LocationIcon className="ml-16 mt-6 mb-5 object-contain text-[#2A6A90] fill-current" />
             
                 <h1 className="text-xl mb-6 -ml-4 mt-6 font-bold text-[#2A6A90] ">Localização:</h1>
@@ -15,24 +15,24 @@ return (
      
       <div className="ml-16">
         <div>
-            <span className="font-semibold text-xl">Sala: </span>
+            <span className="font-semibold text-lg text-[#2A6A90]/70">Sala: </span>
             {room}
         </div>
 
         <div>
-            <span className="font-semibold text-xl">Piso: </span>
+            <span className="font-semibold text-lg text-[#2A6A90]/70">Piso: </span>
             {floor}
         </div>
 
         <div>
 
-        <span className="font-semibold text-xl">Edifício: </span>
+        <span className="font-semibold text-lg text-[#2A6A90]/70">Edifício: </span>
         {building}
     </div>
 
         <div>
 
-        <span className="font-semibold text-xl">Capacidade sala: </span>
+        <span className="font-semibold text-lg text-[#2A6A90]/70">Capacidade sala: </span>
         {capacity}
     </div>
                 
