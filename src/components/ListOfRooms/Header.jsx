@@ -13,7 +13,12 @@ function Header(){
                 className="px-4 py-1 rounded text-3xl">
                 {"<"}
                 </button>
-                <img src={logo} alt="logotipo do spotter" className="ml-3 w-10"/>
+                
+                <h1 className="text-xl font-extrabold font-serif mt-3 text-[#2A6A90]/70 text-center">
+                    SPOTTER
+                </h1>
+                           
+                
             </div>
             <div className="flex items-baseline">
                 <span className="px ml-6 py-1 font-bold text-[#2A6A90]">

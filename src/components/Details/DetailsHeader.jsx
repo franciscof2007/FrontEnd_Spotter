@@ -15,11 +15,13 @@ function DetailsHeader(){
                 className="px-4 py-1 rounded text-3xl">
                 {"<"}
                 </button>
-                <img src={logo} alt="logotipo do spotter" className="ml-3 w-10"/>
+                <h1 className="text-xl font-extrabold font-serif mt-3 text-[#2A6A90]/70 text-center">
+                    SPOTTER
+                </h1>
             </div>
 
-            <div className="p-4">
-                <h1 className="text-4xl mb-17 font-bold text-[#2A6A90] text-center">Detalhes da Sala</h1>
+            <div className="p-3">
+                <h1 className="text-3xl mb-15 pt-3 font-extrabold text-[#2A6A90]/80 text-center">Detalhes da sala</h1>
             </div>
         </div>
     );

@@ -4,10 +4,10 @@ import refreshIcon from "../../assets/refresh.svg";
 function Error({onRetry}) {
   return (
     <div className="flex flex-col items-center justify-start min-h-screen">
-      <div className="w-full h-px bg-[#2A6A90] opacity-50 mt-10 mb-6"></div>
+      <div className="w-full h-px bg-[#2A6A90] opacity-20 mt-4 mb-6"></div>
 
       <div className="flex flex-col items-center justify-start min-h-screen pt-4 p-8">
-      <h1 className="text-4xl mb-12 mt-10 font-bold text-[#2A6A90] text-center">
+      <h1 className="text-4xl mb-12 mt-10 font-bold text-[#2A6A90] text-center font-serif">
         Ocorreu um erro
       </h1>
       

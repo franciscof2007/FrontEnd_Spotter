@@ -4,32 +4,32 @@ import refreshIcon from "../../assets/refresh.svg";
 function NoInternet({onRetry}) {
   return (
     <div className="flex flex-col items-center justify-start min-h-screen">
-      <div className="w-full h-px bg-[#2A6A90] opacity-50 mt-10 mb-6"></div>
+      <div className="w-full h-px bg-[#2A6A90] opacity-20 mt-4 mb-6"></div>
 
       <div className="flex flex-col items-center justify-start min-h-screen pt-4 p-8">
-      <h1 className="text-4xl mb-12 mt-10 font-bold text-[#2A6A90] text-center">
+      <h1 className="text-4xl mb-12 mt-10 font-bold text-[#2A6A90] text-center font-serif">
         Sem Internet
       </h1>
       
        <svg 
        xmlns="http://www.w3.org/2000/svg" 
-       height="80px" 
+       height="64px" 
        viewBox="0 -960 960 960" 
-       width="80px" 
+       width="64px" 
        fill="currentColor"
        className="text-[#2A6A90]"
        >
        <path d="M790-56 414-434q-47 11-87.5 33T254-346l-84-86q32-32 69-56t79-42l-90-90q-41 21-76.5 46.5T84-516L0-602q32-32 66.5-57.5T140-708l-84-84 56-56 736 736-58 56Zm-381-93.5Q380-179 380-220q0-42 29-71t71-29q42 0 71 29t29 71q0 41-29 70.5T480-120q-42 0-71-29.5ZM716-358l-29-29-29-29-144-144q81 8 151.5 41T790-432l-74 74Zm160-158q-77-77-178.5-120.5T480-680q-21 0-40.5 1.5T400-674L298-776q44-12 89.5-18t92.5-6q142 0 265 53t215 145l-84 86Z"/>
        </svg>
 
-      <h1 className="text-xl mb-12 mt-10 text-center">
-        Verifique a sua ligação com a internet e tente novamente.
+      <h1 className="text-lg mb-12 mt-10 text-center">
+        Verifique a sua ligação com a internet.
       </h1>
       
       <button 
         onClick={onRetry}
         type="button" 
-        className="bg-[#2A6A9066] rounded-full w-64 h-20  cursor-pointer flex items-center justify-center gap-3 px-4"
+        className="bg-[#2A6A9066] rounded-full w-60 h-20  cursor-pointer flex items-center justify-center gap-3 px-4"
       >
         <span className="text-xl font-medium text-[#2A6A90]">
           Tente Novamente

@@ -8,7 +8,7 @@ function Loading() {
 
       {/* 2. Conteúdo central com animação no texto */}
       <div className="flex flex-col items-center pt-20">
-        <h1 className="animate-text-fade text-center tracking-wider text-5xl font-bold text-white mt-60">
+        <h1 className="animate-text-fade text-center font-serif tracking-wider text-5xl font-bold text-white mt-60">
           SPOTTER
         </h1>
     
