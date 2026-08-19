@@ -1,15 +1,17 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import logo from "../../assets/hero.png"
 
 function DetailsHeader(){
 
     const {id,campus} = useParams();
     const navigate=useNavigate();
+    const location= useLocation();
+    const previousSearch = location.state?.from || '';
     
     return(
         <div>
             <div className="flex justify-between px-6 mt-3">
-                <button onClick={()=>navigate(`/${campus}`)}
+                <button onClick={()=>navigate(`/${campus}${previousSearch}`)}
                 className="px-4 py-1 rounded text-3xl">
                 {"<"}
                 </button>

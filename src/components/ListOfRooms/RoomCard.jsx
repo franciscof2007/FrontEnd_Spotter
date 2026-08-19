@@ -1,8 +1,9 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import {FormatTime} from '../../Utils/FormatTime'
 function RoomCard({ availability, building, floor, room, startTime, endTime, id }){
     const navigate=useNavigate();
     const {campus}=useParams();
+    const location = useLocation();
     let statusText = "Incerto";
     let textColor = "text-gray-500"
     let stripeColor = "bg-gray-500";
@@ -32,7 +33,7 @@ function RoomCard({ availability, building, floor, room, startTime, endTime, id 
 
     return (
         <div
-        onClick={() => navigate(`/${campus}/sala/${id}`)}
+        onClick={() => navigate(`/${campus}/sala/${id}`, {state: {from: location.search }})}
         className="border-2 border-gray-300 rounded mb-1 p-4 bg-white cursor-pointer"
         >
         <div className="flex justify-between items-center mb-1">
