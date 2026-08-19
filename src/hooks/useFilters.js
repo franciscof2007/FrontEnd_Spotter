@@ -12,47 +12,50 @@ export function useFilters(){
 
     const setBuilding = (newBuilding) =>{
         setSearchParams(prev=>{
+            const params = new URLSearchParams(prev);
             if(newBuilding){
-                prev.set('building_fenix_id', newBuilding);
+                params.set('building_fenix_id', newBuilding);
             }else{
-                prev.delete('building_fenix_id');
+                params.delete('building_fenix_id');
             }
             
-            return prev;
+            return params;
         });
     }
 
     const setStatus = (newStatus) =>{
         setSearchParams(prev=>{
+            const params = new URLSearchParams(prev);
             if(newStatus){
-                prev.set('status', newStatus);
+                params.set('status', newStatus);
             }else{
-                prev.delete('status');
+                params.delete('status');
             }
             
-            return prev;
+            return params;
         });
     }
 
     const setDuration = (date, from, until) =>{
         setSearchParams(prev=>{
+            const params = new URLSearchParams(prev);
             if(date){
-                prev.set('date', date);
+                params.set('date', date);
             }else{
-                prev.delete('date');
+                params.delete('date');
             }
             if(from){
-                prev.set('free_from', from);
+                params.set('free_from', from);
             }else{
-                prev.delete('free_from');
+                params.delete('free_from');
             }
             if(until){
-                prev.set('free_until', until);
+                params.set('free_until', until);
 
             }else{
-                prev.delete('free_until');
+                params.delete('free_until');
             }
-            return prev;
+            return params;
         });
 
     }
