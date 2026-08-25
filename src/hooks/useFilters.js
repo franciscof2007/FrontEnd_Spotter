@@ -1,8 +1,15 @@
 import { useSearchParams } from "react-router-dom";
+import { useMemo } from "react";
 
 export function useFilters(){
     const [searchParams, setSearchParams] = useSearchParams();
-    const building = searchParams.get('building_fenix_id') || '';
+
+    const buildingParam = searchParams.get('building_fenix_id') || '';
+    const building = useMemo(
+        () => buildingParam ? buildingParam.split(",") : [],
+        [buildingParam]
+    );
+
     const status = searchParams.get('status') || '';
     const freeFrom=searchParams.get('free_from') || '';
     const freeUntil=searchParams.get ('free_until') || '';
@@ -10,15 +17,24 @@ export function useFilters(){
     const date = searchParams.get('date') || '';
 
 
-    const setBuilding = (newBuilding) =>{
+    const toggleBuilding = (id) =>{
         setSearchParams(prev=>{
             const params = new URLSearchParams(prev);
-            if(newBuilding){
-                params.set('building_fenix_id', newBuilding);
-            }else{
-                params.delete('building_fenix_id');
+            const buildingParam = params.get('building_fenix_id');
+            let ids = buildingParam ? buildingParam.split(",") : [];
+            if (ids.includes(id)){
+                ids= ids.filter(b => b!==id);
             }
-            
+            else{
+                ids=[...ids, id]
+            }
+
+            if(ids.length>0){
+                params.set('building_fenix_id', ids.join(","));
+            }else{
+                params.delete("building_fenix_id");
+            }
+
             return params;
         });
     }
@@ -80,7 +96,7 @@ export function useFilters(){
     return{
         building,
         status,
-        setBuilding,
+        toggleBuilding,
         setStatus,
         clearFilters,
         freeFrom,

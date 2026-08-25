@@ -3,17 +3,11 @@ import Searchbar from "../ListOfRooms/Searchbar";
 import Filters from "../ListOfRooms/Filters";
 import { useFilters } from "../../hooks/useFilters";
 
-function FiltersBuilding({ onClose }) {
-  const { building, setBuilding } = useFilters();
 
-  // Função para alternar a seleção do edifício (ON / OFF)
-  const handleToggle = (value) => {
-    if (building === value) {
-      setBuilding(null); // Desmarca se já estiver selecionado
-    } else {
-      setBuilding(value); // Seleciona o novo edifício
-    }
-  };
+function FiltersBuilding({ onClose }) {
+  const { building, toggleBuilding } = useFilters();
+
+
 
   // Lista dos edifícios disponíveis
   const buildingsList = [
@@ -68,12 +62,12 @@ function FiltersBuilding({ onClose }) {
           {/* Lista de Edifícios Dinâmica */}
           <div className="space-y-2">
             {buildingsList.map((item) => {
-              const isSelected = building === item.id;
+              const isSelected = building.includes(item.id);
 
               return (
                 <div 
                   key={item.id}
-                  onClick={() => handleToggle(item.id)}
+                  onClick={() => toggleBuilding(item.id)}
                   className={`flex items-center gap-4 cursor-pointer transition-transform duration-200 ease-in-out ${
                     isSelected ? 'translate-x-2' : 'translate-x-0'
                   }`}

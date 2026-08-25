@@ -12,7 +12,7 @@ export async function getRooms(campus, page=1, building, status, date, freeFrom,
             params:{
                 campus: campus ? campus.toLowerCase() : campus,
                 page,
-                building_fenix_id:building || undefined,
+                building_fenix_id:building.length ? building.join(",") : undefined,
                 status:status || undefined,
                 date:date || undefined,
                 free_from:freeFrom || undefined,
