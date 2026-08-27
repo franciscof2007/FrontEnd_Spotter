@@ -2,9 +2,18 @@ import Header from "../ListOfRooms/Header";
 import Searchbar from "../ListOfRooms/Searchbar";
 import Filters from "../ListOfRooms/Filters";
 import { useFilters } from "../../hooks/useFilters";
+import { useEffect } from "react";
 
 function FiltersAvailability({ onClose }) {
   const { status, setStatus } = useFilters();
+
+  useEffect(() => {
+  document.body.style.overflow = "hidden";
+
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, []);
 
   // Função para alternar o filtro (ON / OFF)
   const handleToggle = (value) => {
@@ -17,7 +26,7 @@ function FiltersAvailability({ onClose }) {
 
   return (
     <div>
-      <div className="fixed inset-0 bg-black/60 flex flex-col w-full justify-end items-center -mb-3 p-3 z-50">
+      <div className="fixed inset-0 bg-black/60 flex flex-col w-full justify-end items-center p-3 z-50">
         
         {/* Cartão / Modal */}
         <div className="w-full max-w-md rounded-3xl border-t border-gray-200 bg-white p-10 shadow-4xl duration-200">
@@ -49,9 +58,8 @@ function FiltersAvailability({ onClose }) {
           {/* Opção 1: Disponível */}
           <div 
             onClick={() => handleToggle('LIVRE_AGORA')}
-            className={`flex items-center -ml-4 gap-3 mb-6 cursor-pointer transition-transform duration-200 ease-in-out ${
-              status === 'LIVRE_AGORA' ? 'translate-x-2' : 'translate-x-0'
-            }`}
+            className={`flex items-center -ml-4 gap-3 mb-6 cursor-pointer transition-transform duration-200 ease-in-out
+            `}
           >
             {status === 'LIVRE_AGORA' ? (
               /* Toggle ON */
