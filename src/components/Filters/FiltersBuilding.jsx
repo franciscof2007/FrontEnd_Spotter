@@ -2,11 +2,19 @@ import Header from "../ListOfRooms/Header";
 import Searchbar from "../ListOfRooms/Searchbar";
 import Filters from "../ListOfRooms/Filters";
 import { useFilters } from "../../hooks/useFilters";
+import { useEffect } from "react";
 
 
 function FiltersBuilding({ onClose }) {
   const { building, toggleBuilding } = useFilters();
 
+useEffect(() => {
+  document.body.style.overflow = "hidden";
+
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, []);
 
 
   // Lista dos edifícios disponíveis
@@ -32,7 +40,7 @@ function FiltersBuilding({ onClose }) {
       <div className="fixed inset-0 bg-black/60 flex flex-col p-3 justify-end items-center z-50">
         
         {/* Cartão / Modal */}
-        <div className="w-full max-w-md -mb-3 bg-white p-10 rounded-3xl shadow-2xl max-h-[70vh] overflow-y-auto">
+        <div className="w-full max-w-md bg-white p-10 rounded-3xl shadow-2xl max-h-[70vh] overflow-y-auto">
           <div className="flex items-center justify-between mb-1">
             <span className="text-3xl -ml-1 font-bold text-[#2A6A90]">
               Edifícios
@@ -55,7 +63,7 @@ function FiltersBuilding({ onClose }) {
           <div className="w-full h-px bg-[#000000]/10 mb-2 -ml-2"></div>
 
           {/* Texto Explicativo */}
-          <p className="text-medium text-gray-600 mb-6 text-left leading-relaxed">
+          <p className="text-medium text-gray-600 mb-3 text-left leading-relaxed">
             Edifícios a priorizar nos resultados.
           </p>
 
@@ -68,9 +76,8 @@ function FiltersBuilding({ onClose }) {
                 <div 
                   key={item.id}
                   onClick={() => toggleBuilding(item.id)}
-                  className={`flex items-center gap-4 cursor-pointer transition-transform duration-200 ease-in-out ${
-                    isSelected ? 'translate-x-2' : 'translate-x-0'
-                  }`}
+                  className={`flex items-center gap-4 cursor-pointer transition-transform duration-200 ease-in-out
+                  `}
                 >
                   {isSelected ? (
                     /* Toggle ON */

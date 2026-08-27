@@ -3,6 +3,7 @@ import Header from "../ListOfRooms/Header";
 import Searchbar from "../ListOfRooms/Searchbar";
 import Filters from "../ListOfRooms/Filters";
 import { useFilters } from "../../hooks/useFilters";
+import { useEffect } from "react";
 
 const sleep =(ms) =>new Promise((resolve) =>setTimeout(resolve,ms));
 
@@ -17,6 +18,15 @@ function FiltersTime({onClose}) {
     const minutes = String(now.getMinutes()).padStart(2, "0");
     return `${hours}:${minutes}`; // HH:mm
   };
+
+  useEffect(() => {
+  document.body.style.overflow = "hidden";
+
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, []);
+
 
   // Estado único para o dia
   const [selectedDate, setSelectedDate] = useState(getTodayString());
