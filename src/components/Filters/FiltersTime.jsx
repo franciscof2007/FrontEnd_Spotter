@@ -4,6 +4,8 @@ import Searchbar from "../ListOfRooms/Searchbar";
 import Filters from "../ListOfRooms/Filters";
 import { useFilters } from "../../hooks/useFilters";
 
+const sleep =(ms) =>new Promise((resolve) =>setTimeout(resolve,ms));
+
 function FiltersTime({onClose}) {
 
   const {setDuration}=useFilters();
@@ -23,13 +25,17 @@ function FiltersTime({onClose}) {
   const [startTime, setStartTime] = useState(getCurrentTimeString());
   const [endTime, setEndTime] = useState(getCurrentTimeString());
 
-  const handleApply = () => {
+  const handleApply = async() => {
     if (endTime < startTime) {
       alert("A hora de fim não pode ser anterior à hora de início.");
       return;
     }
 
     setDuration(selectedDate, startTime, endTime);
+
+    await sleep(100)
+    onClose();
+  
   };
 
   return (

@@ -8,7 +8,7 @@ import FiltersTime from "../Filters/FiltersTime"
 
 
 function Filters(){
-    const {building, setBuilding, status, setStatus, freeFrom, freeUntil, setDuration, clearFilters, date} = useFilters();
+    const {clearFilters} = useFilters();
     const [openBuilding, setOpenBuilding] = useState(false);
     const [Time, setTime] = useState(false);
     const [availability, setAvailability] = useState(false);
