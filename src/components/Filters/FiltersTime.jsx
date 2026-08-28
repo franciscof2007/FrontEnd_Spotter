@@ -9,7 +9,7 @@ const sleep =(ms) =>new Promise((resolve) =>setTimeout(resolve,ms));
 
 function FiltersTime({onClose}) {
 
-  const {setDuration}=useFilters();
+  const {setDuration, date, freeFrom, freeUntil}=useFilters();
   // Funções de apoio para obter valores padrão
   const getTodayString = () => new Date().toISOString().split("T")[0]; // YYYY-MM-DD
   const getCurrentTimeString = () => {
@@ -29,11 +29,11 @@ function FiltersTime({onClose}) {
 
 
   // Estado único para o dia
-  const [selectedDate, setSelectedDate] = useState(getTodayString());
+  const [selectedDate, setSelectedDate] = useState(date || getTodayString());
 
   // Estados para o intervalo de horas
-  const [startTime, setStartTime] = useState(getCurrentTimeString());
-  const [endTime, setEndTime] = useState(getCurrentTimeString());
+  const [startTime, setStartTime] = useState(freeFrom || getCurrentTimeString());
+  const [endTime, setEndTime] = useState(freeUntil || getCurrentTimeString());
 
   const handleApply = async() => {
     if (endTime < startTime) {
