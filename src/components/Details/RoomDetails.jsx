@@ -46,11 +46,9 @@ function RoomDetails() {
     loadData();
   }, [id, campus]);
 
-  if (isloading) return <div className="text-center mt-10">
-    <div>
-      <Loading/>
-    </div>
-    </div>;
+ if (isloading && !roomInfo) {
+  return null;
+}
 
   if(withoutConnection){
     return(

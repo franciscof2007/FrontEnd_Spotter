@@ -42,11 +42,11 @@ useEffect(() => {
         {/* Cartão / Modal */}
         <div className="w-full max-w-md bg-white p-10 rounded-3xl shadow-2xl max-h-[70vh] overflow-y-auto">
           <div className="flex items-center justify-between mb-1">
-            <span className="text-3xl -ml-1 font-bold text-[#2A6A90]">
+            <span className="text-3xl -ml-1 -mt-5 font-bold text-[#2A6A90]">
               Edifícios
             </span>
 
-            <div className="w-9 h-9 bg-[#2A6A90]/20 rounded-full mb-1 flex items-center justify-center shrink-0">
+            <div className="w-9 h-9 bg-[#2A6A90]/20 rounded-full mb-1 -mt-2 flex items-center justify-center shrink-0">
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 onClick={onClose}

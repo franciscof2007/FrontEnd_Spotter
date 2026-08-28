@@ -6,7 +6,7 @@ import Error from "../Errors/Error";
 import NoInternet from "../Errors/NoInternet";
 import { useFilters } from "../../hooks/useFilters";
 import NoResultsFilters from "../Errors/NoResultsFilters";
-import Loading from "../Errors/Loading";
+import ShortLoading from "../Errors/ShortLoading";
 
 
 function Rooms(){
@@ -17,6 +17,7 @@ function Rooms(){
     const [error, setError] = useState(null); 
     const [rooms, setRooms]= useState([]);
     const [nextPage, setNextPage]=useState(null);
+     const [showTopButton, setShowTopButton] = useState(false);
 
     const withoutConnection = Boolean(error!==null && (error.type ==='offline' || error.type==='timeout'));
     const hadFilters = Boolean(building || status || freeFrom || freeUntil || search || date);
@@ -86,12 +87,29 @@ function Rooms(){
         }
     }, [nextPage, isloadingMore])
 
+    useEffect(() => {
+    const handleScroll = () => {
+        setShowTopButton(window.scrollY > 400);
+    };
 
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+        window.removeEventListener("scroll", handleScroll);
+    };
+}, []);
+
+    const goToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+};
 
     if (isloading){
         return(
             <div>
-                <Loading/>
+                <ShortLoading/>
             </div>
         );
     }
@@ -153,11 +171,38 @@ function Rooms(){
                 
 
             </div>
-            {nextPage && <div ref={ref}></div>}
+            <div ref={ref} className="flex justify-center py-6">
+            {isloadingMore ? (
+                <div className="flex items-center gap-2 text-gray-500">
+                    <div className="w-4 h-4 rounded-full border-2 border-gray-200 border-t-[#2A6A90] animate-spin"></div>
+                    <span className="text-sm">A carregar mais salas...</span>
+                </div>
+            ) : !nextPage ? (
+                <span className="text-sm text-gray-400">
+                    Não existem mais salas.
+                </span>
+            ) : null}
+            </div>
+
+             <button
+                onClick={goToTop}
+                aria-label="Voltar ao início"
+                className={`fixed bottom-6 right-6 w-11 h-11 rounded-full bg-[#2A6A90] shadow-lg flex items-center justify-center z-40 transition-all duration-300 ${
+                    showTopButton
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-3 pointer-events-none"
+                }`}
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 -960 960 960"
+                    className="w-6 h-6 fill-white"
+                >
+                    <path d="M480-880 160-560l56 56 224-223v567h80v-567l224 223 56-56-320-320Z" />
+                </svg>
+            </button>
         </div>
-
     );
-
 }
 
 export default Rooms;
