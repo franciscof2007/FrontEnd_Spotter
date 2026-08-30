@@ -43,6 +43,12 @@ api.interceptors.response.use(
         } else if (status >= 500) {
             type = "server_error";
             message = "Erro do servidor. Tenta novamente mais tarde.";
+        }else if(status === 400){
+            type = "invalid_body";
+            message = "Erro no body";
+        }else if(status===429){
+            type= "rate_limit";
+            message= "Limite global de 10 reports/hora excedidos.";
         }
 
 
