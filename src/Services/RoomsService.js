@@ -58,7 +58,11 @@ export async function getDetails(id) {
         availability:response.data.status,
         availableFrom:response.data.available_from,
         availableUntil:response.data.available_until,
-        updatedAt:response.data.last_updated_at
+        updatedAt:response.data.last_updated_at,
+        liveOccupancy:response.data.live_occupancy,
+        liveNoise:response.data.live_noise,
+        hasPlugs:response.data.has_plugs,
+        lastReportAt:response.data.last_report_at,
         };
 
         const formattedEvents=response.data.events.map((event)=>({

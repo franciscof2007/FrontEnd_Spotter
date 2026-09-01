@@ -10,7 +10,11 @@ export function formattedRoomsResponse(data){
         campus:room.campus,
         availability:room.status,
         availableFrom:room.available_from,
-        availableUntil:room.available_until
+        availableUntil:room.available_until,
+        liveOccupancy:room.live_occupancy,
+        liveNoise:room.live_noise,
+        hasPlugs:room.has_plugs,
+        lastReportAt:room.last_report_at,
 
 
 
