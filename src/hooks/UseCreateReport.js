@@ -11,6 +11,8 @@ export function useCreateReport(params) {
             return;
         }
         setIsSubmitting(true);
+        setError(null);
+        setSuccess(false);
         try{
             await createReport(fenixId, dados);
             setSuccess(true);
