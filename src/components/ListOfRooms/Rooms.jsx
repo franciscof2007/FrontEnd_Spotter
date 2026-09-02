@@ -7,7 +7,7 @@ import NoInternet from "../Errors/NoInternet";
 import { useFilters } from "../../hooks/useFilters";
 import NoResultsFilters from "../Errors/NoResultsFilters";
 import ShortLoading from "../Errors/ShortLoading";
-import { GetTimeNow } from "../../Utils/getTimeNow";
+import { GetTimeNow } from "../../Utils/GetTimeNow";
 import { FormatTime } from "../../Utils/FormatTime";
 
 
