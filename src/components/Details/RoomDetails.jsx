@@ -11,12 +11,14 @@ import Error from "../Errors/Error";
 import NoInternet from "../Errors/NoInternet";
 import {timeToMinutes} from "../../Utils/TimeToMinutes";
 import EventIcon from "../../assets/alarm.svg?react";
+import { getRecentReports } from "../../Services/ReportsService";
 
 function RoomDetails() {
   const { id, campus } = useParams();
   const [roomInfo, setRoomInfo] = useState(null);
   const [error, setError] = useState(null);
   const [isloading, setIsloading] =useState(true);
+  const [reports, setReports] = useState(null);
   const withoutConnection = Boolean(error!==null && (error.type ==='offline' || error.type==='timeout'));
   const now = new Date();
   const currentMinutes = now.getHours() *60 + now.getMinutes()
@@ -25,7 +27,7 @@ function RoomDetails() {
   async function loadData() {
       try {
         setIsloading(true);
-        setError(null)
+        setError(null);
         const roomData = await getDetails(id);
         if (roomData && roomData.room) {
           
@@ -42,8 +44,19 @@ function RoomDetails() {
       }
   }
 
+  async function loadReports() { 
+    try{
+      const data = await getRecentReports(id);
+      setReports(data.reports || []);
+      
+    }catch (error){
+      console.error("error loading recent reports.", error);
+    }
+  }
+
   useEffect(() => {
     loadData();
+    loadReports();
   }, [id, campus]);
 
  if (isloading && !roomInfo) {
