@@ -85,7 +85,7 @@ function Rooms({refreshKey}){
             if (entries[0].isIntersecting){
                 loadMoreRooms(nextPage);
             }
-        });
+        }, { rootMargin:"500px"});
         if(ref.current){
             observer.observe(ref.current);
         }
