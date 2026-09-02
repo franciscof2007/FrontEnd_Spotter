@@ -163,7 +163,7 @@ function Rooms({refreshKey}){
         <div>
             <div>
                 <span className="text-center block text-gray-400 mt-2 text-sm">
-                    Atualizado às {FormatTime(now)}.
+                    Atualizado às {FormatTime(now)}
                 </span>
                 <hr className="border-[#000000]/10 my-1"/>
             </div>
