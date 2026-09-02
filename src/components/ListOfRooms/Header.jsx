@@ -10,7 +10,7 @@ function Header(){
         <div>
             <div className="flex justify-between px-6 mt-1">
                 <button onClick={()=>navigate("/")}
-                className="px-4 py-1 rounded text-3xl">
+                className="px-4 py-1 rounded text-3xl cursor-pointer">
                 {"<"}
                 </button>
                 

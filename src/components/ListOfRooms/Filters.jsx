@@ -17,7 +17,7 @@ function Filters(){
         <div className="flex px-1 align-baseline items-center justify-center ml-2">
 
             <div className="flex flex-1 gap-3">
-                <div className="flex-1 flex items-center justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0 text-xs ml-3"
+                <div className="flex-1 flex items-center justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0 text-xs ml-3 cursor-pointer"
                 onClick={()=>setOpenBuilding(true)}
                 
                 >
@@ -25,21 +25,21 @@ function Filters(){
                     <img src={arrowDropDown} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
                 </div>
                 
-                <div className="flex-1 flex items-center justify-between text-xs font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0"
+                <div className="flex-1 flex items-center justify-between text-xs font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0 cursor-pointer"
                 onClick={()=>setAvailability(true)}
                 >
                     <span className="truncate">Dispon.</span>
                     <img src={arrowDropDown} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
                 </div>
                 
-                <div className="flex-1 flex items-center text-xs justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0"
+                <div className="flex-1 flex items-center text-xs justify-between font-semibold rounded px-3 py-1 bg-[#2A6A9066] min-w-0 cursor-pointer"
                 onClick={()=>setTime(true)}
                 >
                     <span className="truncate">Horário</span>
                     <img src={arrowDropDown} alt="seta" className="w-5 h-5 ml-2 shrink-0" />
                 </div>
 
-                <div>
+                <div className="cursor-pointer">
                     <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     height="24px" 

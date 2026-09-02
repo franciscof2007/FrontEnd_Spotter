@@ -9,7 +9,7 @@ function Searchbar({onRefresh}){
 
       <svg 
       onClick={onRefresh}
-      className="mr-3 text-black"
+      className="mr-3 text-black cursor-pointer"
       xmlns="http://www.w3.org/2000/svg" 
       height="27px" 
       viewBox="0 -960 960 960" 
