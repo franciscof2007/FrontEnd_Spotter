@@ -2,10 +2,13 @@ import Header from "./Header";
 import Searchbar from "./Searchbar";
 import Filters from "./Filters";
 import Rooms from "./Rooms";
+import { useState } from "react";
 
 
 
 function SearchPage() {
+
+  const [refreshKey, setRefreshKey] = useState(0);
   return(
     
     <div>
@@ -14,7 +17,7 @@ function SearchPage() {
       </div>
 
       <div>
-        <Searchbar/>
+        <Searchbar onRefresh = {()=>setRefreshKey(k=>k+1)} />
       </div>
 
       <div>
@@ -22,7 +25,7 @@ function SearchPage() {
       </div>
 
       <div>
-        <Rooms/>
+        <Rooms refreshKey={refreshKey}/>
       </div>
 
     </div> 

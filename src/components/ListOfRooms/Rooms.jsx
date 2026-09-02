@@ -7,9 +7,11 @@ import NoInternet from "../Errors/NoInternet";
 import { useFilters } from "../../hooks/useFilters";
 import NoResultsFilters from "../Errors/NoResultsFilters";
 import ShortLoading from "../Errors/ShortLoading";
+import { GetTimeNow } from "../../Utils/getTimeNow";
+import { FormatTime } from "../../Utils/FormatTime";
 
 
-function Rooms(){
+function Rooms({refreshKey}){
     const { campus } = useParams();
     const { building, status, freeFrom, freeUntil, search, clearFilters, date } = useFilters();
     const [isloading, setIsloading] = useState(true);
@@ -17,7 +19,10 @@ function Rooms(){
     const [error, setError] = useState(null); 
     const [rooms, setRooms]= useState([]);
     const [nextPage, setNextPage]=useState(null);
-     const [showTopButton, setShowTopButton] = useState(false);
+    const [showTopButton, setShowTopButton] = useState(false);
+    const [now, setNow] = useState(GetTimeNow());
+
+
 
     const withoutConnection = Boolean(error!==null && (error.type ==='offline' || error.type==='timeout'));
     const hadFilters = Boolean(building || status || freeFrom || freeUntil || search || date);
@@ -32,6 +37,7 @@ function Rooms(){
             const data = await getRooms(campus, 1, building, status, date, freeFrom, freeUntil, search);
             setRooms(data.rooms);
             setNextPage(data.nextPage);
+            setNow(GetTimeNow());
 
         }catch(error){
             setError(error);
@@ -45,11 +51,16 @@ function Rooms(){
         if(campus){
             loadRooms();
         }
-            
-            
 
     },[campus, building, status, date, freeFrom, freeUntil, search]);
 
+
+    useEffect(() => {
+      if (refreshKey === 0) return;
+      loadRooms();
+  }, [refreshKey]);  
+
+            
     async function loadMoreRooms(nextPage) {
         if(isloadingMore || !nextPage){
             return;
@@ -151,7 +162,10 @@ function Rooms(){
     return(
         <div>
             <div>
-                <hr className="border-[#000000]/10 my-4 mt-5 "/>
+                <span className="text-center block text-gray-400 mt-2">
+                    Atualizado às {FormatTime(now)}.
+                </span>
+                <hr className="border-[#000000]/10 my-1"/>
             </div>
 
             <div className="grid grid-cols-1 gap-4 mr-6 ml-6">

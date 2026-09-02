@@ -1,13 +1,14 @@
 import search from "../../assets/search.svg"
 import { useFilters } from "../../hooks/useFilters";
 
-function Searchbar(){
+function Searchbar({onRefresh}){
   const { search, setSearch} = useFilters();
     return(
         
     <div className="flex items-center justify-center py-3 mb-2 mr-9">
 
       <svg 
+      onClick={onRefresh}
       className="mr-3 text-black"
       xmlns="http://www.w3.org/2000/svg" 
       height="27px" 
