@@ -1,7 +1,4 @@
 import { useState } from "react";
-import Header from "../ListOfRooms/Header";
-import Searchbar from "../ListOfRooms/Searchbar";
-import Filters from "../ListOfRooms/Filters";
 import { useFilters } from "../../hooks/useFilters";
 import { useEffect } from "react";
 
@@ -36,8 +33,8 @@ function FiltersTime({onClose}) {
   const [endTime, setEndTime] = useState(freeUntil || getCurrentTimeString());
 
   const handleApply = async() => {
-    if (endTime < startTime) {
-      alert("A hora de fim não pode ser anterior à hora de início.");
+    if (endTime <= startTime) {
+      alert("A hora de fim não pode ser anterior ou igual à hora de início.");
       return;
     }
 
