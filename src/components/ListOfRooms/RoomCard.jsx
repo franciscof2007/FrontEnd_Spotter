@@ -28,7 +28,7 @@ function RoomCard({ availability, building, floor, room, startTime, endTime, id 
         statusText = "Ocupada";
         textColor = "text-red-900";
         stripeColor = "bg-red-900";
-        subtitle = endTime ? `Ocupada até às ${FormatTime(endTime)}` : "Ocupada neste momento";
+        subtitle = endTime ? `Ocupada até às ${FormatTime(startTime)}` : "Ocupada neste momento";
     }
 
     return (

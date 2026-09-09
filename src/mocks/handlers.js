@@ -113,7 +113,7 @@ export const handlers=[
                         {
                                     "start_time": "16:00:00",
                                     "end_time": "17:30:00",
-                                    "event_type": "MANUTENCAO",
+                                    "event_type": "Aula de computaria",
                                     "course_info": "Curso Eng. 1",
                                     "info": "Gerado para fins de teste"
                                 },

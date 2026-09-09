@@ -5,7 +5,7 @@ function RoomEvent({start, end, type, info, course}){
     const navigate=useNavigate();
 
 return (
-   <div className="w-10/12 w-full">
+   <div className="w-full">
 
 
       <div className="rounded-xl ml-12 mr-12 mt-6 p-4 bg-[#2A6A9066]/50 text-gray-900">
