@@ -14,7 +14,7 @@ function Header(){
                 {"<"}
                 </button>
                 
-                <h1 className="text-xl font-extrabold font-serif mt-3 text-[#2A6A90]/70 text-center">
+                <h1 className="text-xl font-extrabold font-serif mt-3 text-[#2A6A90]/70 text-center cursor-pointer" onClick={()=>navigate("/")}>
                     SPOTTER
                 </h1>
                            
