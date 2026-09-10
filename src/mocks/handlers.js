@@ -111,15 +111,15 @@ export const handlers=[
                     last_updated_at: "2026-08-12T10:00:00Z",
                     events: [
                         {
-                                    "start_time": "16:00:00",
-                                    "end_time": "17:30:00",
+                                    "start_time": "22:00:00",
+                                    "end_time": "23:30:00",
                                     "event_type": "Aula de computaria",
                                     "course_info": "Curso Eng. 1",
                                     "info": "Gerado para fins de teste"
                                 },
                                 {
-                                    "start_time": "17:30:00",
-                                    "end_time": "18:00:00",
+                                    "start_time": "23:30:00",
+                                    "end_time": "23:02:00",
                                     "event_type": "AULA",
                                     "course_info": "Curso Eng. 5",
                                     "info": "Gerado para fins de teste"

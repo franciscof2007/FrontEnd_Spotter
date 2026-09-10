@@ -7,9 +7,9 @@ import RoomEvent from "./RoomEvent";
 import { getDetails } from "../../Services/RoomsService";
 import Error from "../Errors/Error";
 import NoInternet from "../Errors/NoInternet";
-import {timeToMinutes} from "../../Utils/TimeToMinutes";
-import EventIcon from "../../assets/alarm.svg?react";
 import { getRecentReports } from "../../Services/ReportsService";
+import RoomsEventList from "./RoomsEventList";
+
 
 function RoomDetails() {
   const { id, campus } = useParams();
@@ -18,9 +18,6 @@ function RoomDetails() {
   const [isloading, setIsloading] =useState(true);
   const [reports, setReports] = useState(null);
   const withoutConnection = Boolean(error!==null && (error.type ==='offline' || error.type==='timeout'));
-  const now = new Date();
-  const currentMinutes = now.getHours() *60 + now.getMinutes()
-  const [MostrarTodosEventos, setMostrarTodosEventos] = useState(false);
 
   async function loadData() {
       try {
@@ -77,16 +74,6 @@ function RoomDetails() {
     );
   }
 
-  const eventosRestantes = roomInfo.events 
-    ? roomInfo.events.filter((event)=>{
-      const eventEnd = event.end;
-      const eventEndMinutes = timeToMinutes(eventEnd);
-
-      return eventEndMinutes > currentMinutes;
-    })
-    :[];
-
-  const eventosVisiveis = MostrarTodosEventos ? eventosRestantes : eventosRestantes.slice(0,1);
   return (
     <div>
       <div>
@@ -112,39 +99,10 @@ function RoomDetails() {
       </div>
     */}
 
-      <div>
-        <div className="mt-12 flex gap-4 items-center">
-          <EventIcon className="ml-16 w-7 h-7 text-[#2A6A90] fill-current" />
-          <h1 className="text-xl font-bold text-[#2A6A90]">Próximos Eventos:</h1>
-        </div>
-        {eventosRestantes.length>0 ? (
-          <div className="flex flex-col items-center w-full">
-          {eventosVisiveis
-          .map((event)=>(
-            <RoomEvent
-            key={event.id || event.start}
-            start={(event.start.slice(0,5))}
-            end={(event.end.slice(0,5))}
-            type={event.type}
-            course={event.course}
-            info={event.info}
-          />
-          ))}
-          {
-            eventosRestantes.length>1 && (
-              <button onClick={()=>setMostrarTodosEventos(!MostrarTodosEventos)}
-              className="mt-6 w-10/12 py-3 text-center bg-[#EAEAEA] text-[#2A6A90] justify-center rounded-xl font-medium">
-              {MostrarTodosEventos ? "ver menos ↑" : "ver mais ↓"}
-              </button>
-            )}
-          </div>
-        ) : (
-          <p className="text-gray-500 italic mt-4 ml-16">
-            Sem eventos agendados.
-          </p>
-        )}
-      </div>
+    <div>
+      <RoomsEventList eventos={roomInfo.events} />
     </div>
+ </div>
   );
 }
 
