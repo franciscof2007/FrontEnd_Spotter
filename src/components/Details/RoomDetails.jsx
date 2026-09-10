@@ -5,8 +5,6 @@ import RoomLocation from "./RoomLocation";
 //import RoomAvailability from "./RoomAvailability";
 import RoomEvent from "./RoomEvent";
 import { getDetails } from "../../Services/RoomsService";
-import { FormatTime } from "../../Utils/FormatTime";
-import Loading from "../Errors/Loading";
 import Error from "../Errors/Error";
 import NoInternet from "../Errors/NoInternet";
 import {timeToMinutes} from "../../Utils/TimeToMinutes";

@@ -1,8 +1,7 @@
-import { useNavigate, useParams } from "react-router-dom";
+
 import EventIcon from "../../assets/alarm.svg?react";
 
 function RoomEvent({start, end, type, info, course}){
-    const navigate=useNavigate();
 
 return (
    <div className="w-full">
