@@ -7,7 +7,7 @@ const api=axios.create({
 
 if (import.meta.env.MODE === 'development') {
 
-    return;
+    
     api.interceptors.request.use((config) => {
         const pageParams = new URLSearchParams(window.location.search);
         const mockScenario = pageParams.get('mock_scenario');
