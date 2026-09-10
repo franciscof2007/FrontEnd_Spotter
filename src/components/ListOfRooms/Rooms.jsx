@@ -168,7 +168,7 @@ function Rooms({refreshKey}){
                 <hr className="border-[#000000]/10 my-1"/>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 mr-6 ml-6">
+            <div className="grid grid-cols-1 gap-4 mr-6 ml-6 animate-fadein">
                 {rooms.map((room,index) =>(
                         <RoomCard
                             key={room.id || index}
