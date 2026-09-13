@@ -142,4 +142,81 @@ export const handlers=[
                 });
         }
     }),
+    http.get('*/rooms/:id/reports/', ({ request, params }) => {
+        const url = new URL(request.url);
+        const scenario = url.searchParams.get('mock_scenario');
+        const { id } = params;
+
+        switch (scenario) {
+            case 'vazio':
+                return HttpResponse.json({
+                    count: 0,
+                    next: null,
+                    previous: null,
+                    results: []
+                });
+            default:
+                // Geramos uma data atual e subtraímos alguns minutos para ficar realista
+                const now = new Date();
+                const minus3Min = new Date(now.getTime() - 3 * 60000).toISOString();
+                const minus0Min = new Date(now.getTime() - 0 * 60000).toISOString();
+                const plus1Hour = new Date(now.getTime() + 60 * 60000).toISOString();
+
+                return HttpResponse.json({
+                    count: 13,
+                    next: null,
+                    previous: null,
+                    results: [
+                        {
+                            id: 1024,
+                            occupancy: "MANY_FREE_TABLES",
+                            noise: "QUIET",
+                            plugs: "YES",
+                            created_at: minus0Min,
+                            expires_at: plus1Hour
+                        },
+                        {
+                            id: 1025,
+                            occupancy: "SOME_FREE_TABLES",
+                            noise: "QUIET",
+                            plugs: "YES",
+                            created_at: minus3Min,
+                            expires_at: plus1Hour
+                        },
+                        {
+                            id: 1026,
+                            occupancy: "SINGLE_FREE_SEATS",
+                            noise: "LOUD",
+                            plugs: "NO",
+                            created_at: minus3Min,
+                            expires_at: plus1Hour
+                        },
+                        {
+                            id: 1027,
+                            occupancy: "ALMOST_FULL",
+                            noise: "NORMAL",
+                            plugs: "YES",
+                            created_at: minus3Min,
+                            expires_at: plus1Hour
+                        },
+                        {
+                            id: 1028,
+                            occupancy: "FULL",
+                            noise: "QUIET",
+                            plugs: "YES",
+                            created_at: minus3Min,
+                            expires_at: plus1Hour
+                        },
+                        {
+                            id: 1029,
+                            occupancy: "UNAVAILABLE",
+                            noise: "QUIET",
+                            plugs: "UNKNOWN",
+                            created_at: minus3Min,
+                            expires_at: plus1Hour
+                        },
+                    ]
+                });
+        }
+    }),
 ];

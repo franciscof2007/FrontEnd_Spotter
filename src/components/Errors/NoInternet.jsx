@@ -1,5 +1,3 @@
-import errorIcon from "../../assets/error.svg";
-import refreshIcon from "../../assets/refresh.svg";
 
 function NoInternet({onRetry}) {
   return (

@@ -9,7 +9,7 @@ import Error from "../Errors/Error";
 import NoInternet from "../Errors/NoInternet";
 import { getRecentReports } from "../../Services/ReportsService";
 import RoomsEventList from "./RoomsEventList";
-
+import RoomsReports from "./RoomsReports";
 
 function RoomDetails() {
   const { id, campus } = useParams();
@@ -101,6 +101,9 @@ function RoomDetails() {
 
     <div>
       <RoomsEventList eventos={roomInfo.events} />
+    </div>
+    <div>
+      <RoomsReports reports={reports}/>
     </div>
  </div>
   );
