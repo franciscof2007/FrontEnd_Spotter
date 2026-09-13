@@ -1,5 +1,6 @@
 export function formattedReport(data){
-
+    if (data===null)
+        return null;
     return {
         id: data.id,
         roomId: data.room_fenix_id,
@@ -18,7 +19,7 @@ export function formattedReportResponse(data){
     formattedReport(report));
 
     return{
-        reports: formattedReport,
+        reports: formattedReports,
         total:data.count
     };
 
