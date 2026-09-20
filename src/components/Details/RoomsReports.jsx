@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ReportIcon from "../../assets/reports_button.svg?react";
+import ReportIcon from "../../assets/Reports_button.svg?react";
 import ReportModal from "./ReportModal";
 import Clock from "../../assets/Clock.svg?react";
 
