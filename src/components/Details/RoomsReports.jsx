@@ -1,4 +1,7 @@
 import { useState } from "react";
+import ReportIcon from "../../assets/reports_button.svg?react";
+import ReportModal from "./ReportModal";
+import Clock from "../../assets/Clock.svg?react";
 
 function RoomsReports({reports}){
     function getOccupancyText(occupancy){
@@ -21,6 +24,7 @@ function RoomsReports({reports}){
     const reportsList = reports || [];
     const visibleReports = showAllReports ? reportsList : reportsList.slice(0,2)
     const hasMoreReports = reportsList.length > 2;
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
 
 
@@ -50,7 +54,8 @@ function RoomsReports({reports}){
                 </p>
             </div>
         </div>
-
+        {reportsList.length>0 ? (
+        <>
         <div className="ml-20 mr-12 flex flex-col gap-6 mt-5 mb-8">
             {visibleReports.map((report)=>(
                 <div key={report.id}>
@@ -62,21 +67,58 @@ function RoomsReports({reports}){
                     </p>
                 </div>
             ))}
+
         </div>
+        
 
         {hasMoreReports && (
-            <div className="flex flex-col items-center w-full mb-8">
+            <div className="flex flex-col items-center w-full mb-4"> 
                 <button
                     onClick={()=> setShowAllReports(!showAllReports)}
-                    className="mt-6 w-10/12 py-3 text-center bg-[#EAEAEA] text-[#2A6A90] rounded-xl font-medium">
+                    className="w-10/12 py-3 text-center bg-[#EAEAEA] text-[#2A6A90] rounded-xl font-medium">
                     {showAllReports ? "Ver menos ↑" : `ver mais (${reportsList.length}) ↓`}
                 </button>
             </div>
         )}
-    </div>
+        
+            <div className="fixed bottom-6 right-6 flex flex-col items-center z-50">
+                <span className="font-medium text-[#053B5B]">
+                    Reportar
+                </span>
+                <button className="w-16 h-16 rounded-full bg-[#053B5B] flex justify-center items-center mt-1" onClick={()=>setIsModalOpen(true)}>
+                    <ReportIcon className="w-6 h-6 text-white fill-current"/>
 
-    )
 
+                </button>
+            </div>
+        </>
+        ) : (
+            <div className="flex flex-col gap-4 mt-10 justify-center items-center mr-18 ml-18">
+                <div className="flex gap-4">
+                    <span className="font-bold text-lg">Sem reports recentes</span>
+                    <Clock/>
+                </div>
+                <div className="text-center">
+                    <span>    
+                        Adiciona o teu próprio report de forma a ajudares outros alunos.
+                    </span>
+                </div>
+
+                <button onClick={()=>setIsModalOpen(true)}
+                    className="w-full flex items-center justify-center gap-3 bg-[#053B5B] text-white rounded-xl font-medium text-lg shadow-md py-1">
+                    <ReportIcon className="fill_current"/>
+                    Reportar
+                </button>
+               
+
+            </div>
+        )}    
+        <ReportModal isOpen = {isModalOpen} onClose= {()=>setIsModalOpen(false)}/>
+    </div>         
+    );
 }
+
+
+
 
 export default RoomsReports;
