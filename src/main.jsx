@@ -5,7 +5,7 @@ import App from './App.jsx'
 
 async function enableMocking() {
 
-  
+  return;
   if (import.meta.env.MODE !== 'development') {
     return;
   }
