@@ -1,17 +1,17 @@
 import { useState } from "react";
 import ReportIcon from "../../assets/Reports_button.svg?react";
-import ReportModal from "./ReportModal";
+import ReportModal from "./ReportMainPage";
 import Clock from "../../assets/Clock.svg?react";
 
 function RoomsReports({reports}){
     function getOccupancyText(occupancy){
         switch(occupancy){
             case "MANY_FREE_TABLES":
-                return "Muitas mesas livres";
+                return "Várias mesas livres";
             case "SOME_FREE_TABLES":
                 return "Algumas mesas livres";
             case "SINGLE_FREE_SEATS":
-                return "Alguns lugares livres";
+                return "Lugares soltos livres";
             case "ALMOST_FULL":
                 return "Quase cheio";
             case "FULL":

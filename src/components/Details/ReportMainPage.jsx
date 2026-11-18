@@ -21,69 +21,69 @@ function ReportModal({isOpen, onClose}){
                     Como está este espaço para estudar agora?
                 </h1>
                 
-               <div className="flex flex-col gap-6 w-full max-w-sm mt-4">
+               <div className="flex flex-col gap-6 w-full max-w-sm mt-6">
                     <button className="flex items-center gap-6 w-full text-center">
-                        <div className="w-16 h-16 rounded-full bg-[#EAEAEA] flex justify-center items-center shrink-0">
+                        <div className="w-20 h-16 rounded-full bg-[#EAEAEA] flex justify-center items-center shrink-0">
                             <SomeTables/>
 
                         </div>
-                        <span className="font-medium text-black text-lg"> 
+                        <span className="font-medium text-black text-base"> 
                             Várias mesas livres
                         </span>
                     </button>
                </div>
                <div className="flex flex-col gap-6 w-full max-w-sm mt-4">
                     <button className="flex items-center gap-6 w-full text-center">
-                        <div className="w-16 h-16 rounded-full bg-[#EAEAEA] flex justify-center items-center shrink-0">
+                        <div className="w-20 h-16 rounded-full bg-[#EAEAEA] flex justify-center items-center shrink-0">
                             <FewTables/>
 
                         </div>
-                        <span className="font-medium text-black text-lg"> 
+                        <span className="font-medium text-black text-base"> 
                             Algumas mesas livres
                         </span>
                     </button>
                </div>
                <div className="flex flex-col gap-6 w-full max-w-sm mt-4">
                     <button className="flex items-center gap-6 w-full text-center">
-                        <div className="w-16 h-16 rounded-full bg-[#EAEAEA] flex justify-center items-center shrink-0">
+                        <div className="w-20 h-16 rounded-full bg-[#EAEAEA] flex justify-center items-center shrink-0">
                             <Chairs/>
 
                         </div>
-                        <span className="font-medium text-black text-lg"> 
-                            Lugares Soltos Livres
+                        <span className="font-medium text-black text-base"> 
+                            Lugares soltos Livres
                         </span>
                     </button>
                </div>
                <div className="flex flex-col gap-6 w-full max-w-sm mt-4">
                     <button className="flex items-center gap-6 w-full text-center">
-                        <div className="w-16 h-16 rounded-full bg-[#EAEAEA] flex justify-center items-center shrink-0">
+                        <div className="w-20 h-16 rounded-full bg-[#EAEAEA] flex justify-center items-center shrink-0">
                             
                                 <AlmostFull/>
 
                         </div>
-                        <span className="font-medium text-black text-lg"> 
+                        <span className="font-medium text-black text-base"> 
                             Quase cheio
                         </span>
                     </button>
                </div>
                <div className="flex flex-col gap-6 w-full max-w-sm mt-4">
                     <button className="flex items-center gap-6 w-full text-center">
-                        <div className="w-16 h-16 rounded-full bg-[#EAEAEA] flex justify-center items-center shrink-0">
+                        <div className="w-20 h-16 rounded-full bg-[#EAEAEA] flex justify-center items-center shrink-0">
                             <Full/>
 
                         </div>
-                        <span className="font-medium text-black text-lg"> 
+                        <span className="font-medium text-black text-base"> 
                             Cheio
                         </span>
                     </button>
                </div>
                <div className="flex flex-col gap-6 w-full max-w-sm mt-4">
                     <button className="flex items-center gap-6 w-full text-center">
-                        <div className="w-16 h-16 rounded-full bg-[#EAEAEA] flex justify-center items-center shrink-0">
+                        <div className="w-20 h-16 rounded-full bg-[#EAEAEA] flex justify-center items-center shrink-0">
                             <Unavailable/>
 
                         </div>
-                        <span className="font-medium text-black text-lg"> 
+                        <span className="font-medium text-black text-base"> 
                             Espaço Indisponível
                         </span>
                     </button>
